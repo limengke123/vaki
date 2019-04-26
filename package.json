@@ -5,7 +5,9 @@
   "main": "./src/index.js",
   "bin": "./src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+    "version": "npm run changelog && git add CHANGELOG.md"
   },
   "repository": {
     "type": "git",
@@ -32,5 +34,7 @@
   "engines": {
     "node": ">=8"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "conventional-changelog-cli": "^2.0.17"
+  }
 }
