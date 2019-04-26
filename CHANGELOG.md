@@ -1,3 +1,12 @@
+## [0.2.1-0](https://github.com/limengke123/van/compare/v0.2.0...v0.2.1-0) (2019-04-26)
+
+
+### Bug Fixes
+
+* **package:** 恢复package.json的file字段 ([335eb60](https://github.com/limengke123/van/commit/335eb60))
+
+
+
 # [0.2.0](https://github.com/limengke123/van/compare/v0.1.0...v0.2.0) (2019-04-26)
 
 
