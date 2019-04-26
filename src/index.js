@@ -4,8 +4,8 @@ const figlet = require('figlet');
 const program = require('commander');
 const semver = require('semver');
 const pkg = require('../package');
-const { todo } = require('./todo');
-const { stock } = require('./stock');
+const { todoInstall } = require('./todo');
+const { stockInstall } = require('./stock');
 const { error } = require('./util');
 
 if (!semver.satisfies(process.version, pkg.engines.node)) {
@@ -23,16 +23,8 @@ process.on('unhandleRejection', err => {
 
 program.version(pkg.version, '-v, --version');
 
-program
-    .command('todo [name]')
-    .option('-a, --add', 'add a todo-item')
-    .description('a todo-list app!')
-    .action(todo);
-
-program
-    .command('stock')
-    .option('-l, -list', 'list your custom stock')
-    .description('a stock tool!')
-    .action(stock);
+// install sub-command
+todoInstall(program);
+stockInstall(program);
 
 program.parse(process.argv);
