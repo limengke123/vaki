@@ -10,15 +10,19 @@
  * van todo -c {index | key}
  * */
 const ConfigStore = require('configstore');
+const figlet = require('figlet');
+const clear = require('clear');
 const pkg = require('../package');
-const { Helper, Time, error } = require('./util');
+const { Helper, Time, error, Log } = require('./util');
 
 const TODO_LIST = 'TODO_LIST';
+const COMMAND_NAME = 'todo';
 const storeKey = pkg.name + Time.today;
 
 const config = new ConfigStore(storeKey, {[TODO_LIST]: []});
 
 const todo = (option) => {
+    clear()
     if (option.add) {
         try {
             let todoList = config.get(TODO_LIST);
@@ -53,7 +57,6 @@ const todo = (option) => {
         console.log(
             result.join('\n')
         );
-        console.log(config.path)
     }
     if (option.complete) {
         try {
@@ -80,11 +83,19 @@ const todo = (option) => {
     if (option.path) {
         console.log(config.path);
     }
+    if (option.parent.rawArgs.length === 3) {
+        // 没有输入的时候
+        Log.green(figlet.textSync(COMMAND_NAME, {
+            horizontalLayout: 'fitted',
+            font: 'Sub-Zero',
+        }));
+        option.help();
+    }
 };
 
 exports.todoInstall = program => {
     program
-        .command('todo')
+        .command(COMMAND_NAME)
         .alias('t')
         .option('-a, --add <items>', 'add a todo-item', Helper.getArr)
         .option('-l, --list', 'list out today todo-list')

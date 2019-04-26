@@ -18,6 +18,12 @@ const Log = {
             (tag ? chalkTag(tag) : ''),
             message)
         )
+    },
+    green(message) {
+        log(chalk.green(message))
+    },
+    blue(message) {
+        log(chalk.blue(message))
     }
 };
 
@@ -41,6 +47,7 @@ const Time = {
 
 module.exports = {
     error: Log.error,
+    Log,
     Helper,
     Time
 };

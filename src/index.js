@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 const chalk = require('chalk');
+const clear = require('clear');
 const figlet = require('figlet');
 const program = require('commander');
 const semver = require('semver');
 const pkg = require('../package');
 const { todoInstall } = require('./todo');
 const { stockInstall } = require('./stock');
-const { error } = require('./util');
+const { error, Log } = require('./util');
 
 if (!semver.satisfies(process.version, pkg.engines.node)) {
     error(
@@ -28,3 +29,13 @@ todoInstall(program);
 stockInstall(program);
 
 program.parse(process.argv);
+
+const subCmd = program.args[0];
+if (!subCmd) {
+    clear();
+    Log.blue(figlet.textSync(pkg.name, {
+        horizontalLayout: 'fitted',
+        font: 'Train'
+    }));
+    program.help();
+}
