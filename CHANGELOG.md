@@ -1,4 +1,18 @@
-# 0.1.0 (2019-04-26)
+# [0.2.0](https://github.com/limengke123/van/compare/v0.1.0...v0.2.0) (2019-04-26)
+
+
+### Bug Fixes
+
+* **package:** 移除无用字段 main ([e8d0830](https://github.com/limengke123/van/commit/e8d0830))
+
+
+### Features
+
+* 增加了没有传参数时候的默认处理方式 ([12b6289](https://github.com/limengke123/van/commit/12b6289))
+
+
+
+# [0.1.0](https://github.com/limengke123/van/compare/f21651f...v0.1.0) (2019-04-26)
 
 
 ### Bug Fixes
