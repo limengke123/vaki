@@ -1,3 +1,12 @@
+# [0.3.0](https://github.com/limengke123/van/compare/v0.2.1-0...v0.3.0) (2019-04-27)
+
+
+### Features
+
+* **tool:** 增加tool模块，tool模块有opener功能 ([abd4b4f](https://github.com/limengke123/van/commit/abd4b4f))
+
+
+
 ## [0.2.1-0](https://github.com/limengke123/van/compare/v0.2.0...v0.2.1-0) (2019-04-26)
 
 
