@@ -7,6 +7,7 @@ const semver = require('semver');
 const pkg = require('../package');
 const { todoInstall } = require('./modules/todo');
 const { stockInstall } = require('./modules/stock');
+const { toolInstall } = require('./modules/tool');
 const { error, Log } = require('./util');
 
 if (!semver.satisfies(process.version, pkg.engines.node)) {
@@ -27,6 +28,7 @@ program.version(pkg.version, '-v, --version');
 // install sub-command
 todoInstall(program);
 stockInstall(program);
+toolInstall(program);
 
 program.parse(process.argv);
 

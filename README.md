@@ -12,10 +12,13 @@ $ npm i vaki -g
 
 1. [x] todo-list
 2. [ ] stock
+3. [ ] tool
 
 ## Usage
 
 ### todo-list
+
+Todo-list is a simple app that notes what your have done or not done today, it's just help you to manage your time and focus on meaningful things.
 
 ```bash
 
@@ -34,4 +37,19 @@ $ vaki todo --delete {index}
 ```
 
 For convenience, `t` is alias for `todo`, you can just use `vaki t` instead of `vaki todo`.
+
+### tool
+
+Tool module is integrated with some useful third part tools:
+
+1. [x] opener
+
+```bash
+
+# open a link or links in the terminal
+$ vaki tool --open {urls}
+
+```
+
+Also you can use `o` instead of `tool`.
 
