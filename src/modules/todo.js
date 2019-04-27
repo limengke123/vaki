@@ -22,7 +22,7 @@ const storeKey = pkg.name + Time.today;
 const config = new ConfigStore(storeKey, {[TODO_LIST]: []});
 
 const todo = (option) => {
-    clear()
+    clear();
     if (option.add) {
         try {
             let todoList = config.get(TODO_LIST);

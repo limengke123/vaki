@@ -28,8 +28,8 @@ const Log = {
 };
 
 const Helper = {
-    getArr(str, splitor = ',') {
-        return str.split(splitor);
+    getArr(str, separator = ',') {
+        return str.split(separator);
     }
 };
 
