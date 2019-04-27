@@ -5,8 +5,8 @@ const figlet = require('figlet');
 const program = require('commander');
 const semver = require('semver');
 const pkg = require('../package');
-const { todoInstall } = require('./todo');
-const { stockInstall } = require('./stock');
+const { todoInstall } = require('./modules/todo');
+const { stockInstall } = require('./modules/stock');
 const { error, Log } = require('./util');
 
 if (!semver.satisfies(process.version, pkg.engines.node)) {

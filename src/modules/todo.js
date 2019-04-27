@@ -12,8 +12,8 @@
 const ConfigStore = require('configstore');
 const figlet = require('figlet');
 const clear = require('clear');
-const pkg = require('../package');
-const { Helper, Time, error, Log } = require('./util');
+const pkg = require('../../package');
+const { Helper, Time, error, Log } = require('../util');
 
 const TODO_LIST = 'TODO_LIST';
 const COMMAND_NAME = 'todo';

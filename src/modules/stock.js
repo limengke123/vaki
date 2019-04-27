@@ -1,6 +1,6 @@
 const clear = require('clear');
 const figlet = require('figlet');
-const { Log } = require('./util');
+const { Log } = require('../util');
 
 const COMMAND_NAME = 'stock';
 
