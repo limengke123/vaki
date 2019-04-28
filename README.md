@@ -1,6 +1,8 @@
-# vaki
+# vaki &middot; [![npm version](https://img.shields.io/npm/v/vaki.svg)](https://www.npmjs.com/package/vaki) [![npm downloads](https://img.shields.io/npm/dy/vaki.svg)](https://www.npmjs.com/package/vaki) ![node version](https://img.shields.io/node/v/vaki.svg) [![license](https://img.shields.io/github/license/limengke123/vaki.svg)](https://github.com/limengke123/vaki/blob/master/LICENSE)
 
 This repository contains a collection of tiny script for use with `node.js` that help work with terminal freely.
+
+English | [简体中文](./README-zh_CN.md)
 
 ## Installation
 
