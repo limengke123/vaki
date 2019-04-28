@@ -34,6 +34,14 @@ $ vaki todo --complete {index}
 # delete a todo-item
 $ vaki todo --delete {index}
 
+# filter todo-list
+
+# 1. filter all the item you had done today
+$ vaki todo --filter 1
+
+# 2. filter all the item you did not complete yet today
+$ vaki todo -filter
+
 ```
 
 For convenience, `t` is alias for `todo`, you can just use `vaki t` instead of `vaki todo`.
