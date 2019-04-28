@@ -5,9 +5,8 @@ const { Log } = require('../util');
 const COMMAND_NAME = 'stock';
 
 const stock = (option) => {
-    clear();
-
     if(option.parent.rawArgs.length === 3) {
+        clear();
         Log.green(figlet.textSync(COMMAND_NAME, {
             horizontalLayout: 'fitted',
             font: 'Sub-Zero'

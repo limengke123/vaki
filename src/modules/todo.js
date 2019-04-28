@@ -22,7 +22,6 @@ const storeKey = pkg.name + Time.today;
 const config = new ConfigStore(storeKey, {[TODO_LIST]: []});
 
 const todo = (option) => {
-    clear();
     if (option.add) {
         try {
             let todoList = config.get(TODO_LIST);
@@ -85,6 +84,7 @@ const todo = (option) => {
     }
     if (option.parent.rawArgs.length === 3) {
         // 没有输入的时候
+        clear();
         Log.green(figlet.textSync(COMMAND_NAME, {
             horizontalLayout: 'fitted',
             font: 'Sub-Zero',
