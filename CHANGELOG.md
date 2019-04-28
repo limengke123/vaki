@@ -1,3 +1,21 @@
+# [0.4.0](https://github.com/limengke123/van/compare/v0.3.0...v0.4.0) (2019-04-28)
+
+
+### Bug Fixes
+
+* **package:** 移除main字段，该字段在这项目无用 ([b8de57f](https://github.com/limengke123/van/commit/b8de57f))
+* **todo:** 修复每次触发命令都会清除终端的bug ([75c9839](https://github.com/limengke123/van/commit/75c9839))
+
+
+### Features
+
+* **main:** main command加入幸运数字 ([d2a8937](https://github.com/limengke123/van/commit/d2a8937))
+* **main:** 主命令加上了配置文件 ([d72948d](https://github.com/limengke123/van/commit/d72948d))
+* **todo:** 增加--filter选项，能够筛选是否完成 ([35d727e](https://github.com/limengke123/van/commit/35d727e))
+* **tool:** tool模块的打开功能支持搜索选项，目前支持百度、知乎、github ([7fd027d](https://github.com/limengke123/van/commit/7fd027d))
+
+
+
 # [0.3.0](https://github.com/limengke123/van/compare/v0.2.1-0...v0.3.0) (2019-04-27)
 
 
