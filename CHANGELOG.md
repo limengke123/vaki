@@ -1,3 +1,12 @@
+## [0.4.1](https://github.com/limengke123/van/compare/v0.4.0...v0.4.1) (2019-04-28)
+
+
+### Features
+
+* **main:** 无参数情况下 显示target数据 ([c02d664](https://github.com/limengke123/van/commit/c02d664))
+
+
+
 # [0.4.0](https://github.com/limengke123/van/compare/v0.3.0...v0.4.0) (2019-04-28)
 
 
