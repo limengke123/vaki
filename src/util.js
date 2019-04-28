@@ -33,6 +33,12 @@ const Helper = {
     }
 };
 
+const Common = {
+    getLuckNumber () {
+        return ~~(Math.random() * 10)
+    }
+};
+
 const Time = {
     get today () {
         const date = new Date();
@@ -49,5 +55,6 @@ module.exports = {
     error: Log.error,
     Log,
     Helper,
-    Time
+    Time,
+    Common
 };
