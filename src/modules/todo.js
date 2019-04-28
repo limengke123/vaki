@@ -12,25 +12,21 @@
 const ConfigStore = require('configstore');
 const figlet = require('figlet');
 const clear = require('clear');
-const pkg = require('../../package');
-const { Helper, Time, error, Log } = require('../util');
+const { Helper, error, Log } = require('../util');
+const { todoConstant } = require('../constant');
 
-const TODO_LIST = 'TODO_LIST';
-const COMMAND_NAME = 'todo';
-const storeKey = pkg.name + Time.today;
-
-const config = new ConfigStore(storeKey, {[TODO_LIST]: []});
+const config = new ConfigStore(todoConstant.TODO_DATA, {[todoConstant.TODO_DATA_LIST]: []});
 
 const todo = (option) => {
     if (option.add) {
         try {
-            let todoList = config.get(TODO_LIST);
+            let todoList = config.get(todoConstant.TODO_DATA_LIST);
             const arr = option.add.map(item => ({
                 text: item,
                 isComplete: false,
             }));
             todoList = todoList.concat(...arr);
-            config.set(TODO_LIST, todoList);
+            config.set(todoConstant.TODO_DATA_LIST, todoList);
             console.log('add success');
         } catch (e) {
             error(e.message);
@@ -39,23 +35,22 @@ const todo = (option) => {
     if (option.delete) {
         try {
             const indexArg = option.delete - 1;
-            let todoList = config.get(TODO_LIST);
+            let todoList = config.get(todoConstant.TODO_DATA_LIST);
             todoList.splice(indexArg, 1);
-            config.set(TODO_LIST, todoList);
+            config.set(todoConstant.TODO_DATA_LIST, todoList);
             console.log('delete success')
         } catch (e) {
             error(e.message);
         }
     }
     if (option.list) {
-        const todoList = config.get(TODO_LIST);
+        const todoList = config.get(todoConstant.TODO_DATA_LIST);
         let result = todoList.map((item ,index) => {
             const showIndex = index + 1;
             return {
                 ...item,
                 index: showIndex
             }
-            // return showIndex + '. ' + item.text + ' ' + 'complete: ' + item.isComplete;
         });
         if (option.filter) {
             if (option.filter === '1') {
@@ -78,7 +73,7 @@ const todo = (option) => {
     }
     if (option.complete) {
         try {
-            let todoList = config.get(TODO_LIST);
+            let todoList = config.get(todoConstant.TODO_DATA_LIST);
             const indexArg = option.complete - 1;
             if (indexArg > todoList.length) {
                 return error('没有这个todo-item')
@@ -92,7 +87,7 @@ const todo = (option) => {
                 }
                 return item;
             });
-            config.set(TODO_LIST, todoList);
+            config.set(todoConstant.TODO_DATA_LIST, todoList);
         } catch (e) {
             error(e.message);
         }
@@ -104,7 +99,7 @@ const todo = (option) => {
     if (option.parent.rawArgs.length === 3) {
         // 没有输入的时候
         clear();
-        Log.green(figlet.textSync(COMMAND_NAME, {
+        Log.green(figlet.textSync(todoConstant.TODO_COMMAND_NAME, {
             horizontalLayout: 'fitted',
             font: 'Sub-Zero',
         }));
@@ -114,7 +109,7 @@ const todo = (option) => {
 
 exports.todoInstall = program => {
     program
-        .command(COMMAND_NAME)
+        .command(todoConstant.TODO_COMMAND_NAME)
         .alias('t')
         .option('-a, --add <items>', 'add a todo-item', Helper.getArr)
         .option('-l, --list', 'list out today todo-list')

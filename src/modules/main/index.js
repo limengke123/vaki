@@ -2,13 +2,13 @@ const child_process = require('child_process');
 const clear = require('clear');
 const figlet = require('figlet');
 const ConfigStore = require('configstore');
-const { MAIN_CONF } = require('../../constant');
+const { mainConstant } = require('../../constant');
 const { Log } = require('../../util');
 const pkg = require('../../../package');
 const defaultConfig = require('./defaultConfig');
 const { luckyNumber } = require('./luckyNumber');
 
-const config = new ConfigStore(MAIN_CONF, defaultConfig);
+const config = new ConfigStore(mainConstant.MAIN_CONF, defaultConfig);
 
 exports.mainInstall = program => {
     program

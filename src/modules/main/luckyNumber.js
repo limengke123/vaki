@@ -1,27 +1,24 @@
 const chalk = require('chalk');
 const ConfigStore = require('configstore');
-const { MAIN_DATA } = require('../../constant');
+const { mainConstant } = require('../../constant');
 const { Time, Common } = require('../../util');
 
-const config = new ConfigStore(MAIN_DATA);
-
-const date = 'date';
-const luckyNumber = 'luckyNumber';
+const config = new ConfigStore(mainConstant.MAIN_DATA);
 
 exports.luckyNumber = () => {
-    if (!config.get(date)) {
-        config.set(date, Time.today)
+    if (!config.get(mainConstant.MAIN_DATA_DATE)) {
+        config.set(mainConstant.MAIN_DATA_DATE, Time.today)
     }
-    if (config.get(luckyNumber) === undefined) {
+    if (config.get(mainConstant.MAIN_DATA_LUCKY_NUMBER) === undefined) {
         // 首次进来，从来没有设置过
-        config.set(luckyNumber, Common.getLuckNumber())
+        config.set(mainConstant.MAIN_DATA_LUCKY_NUMBER, Common.getLuckNumber())
     }
-    if (config.get(date) !== Time.today) {
+    if (config.get(mainConstant.MAIN_DATA_DATE) !== Time.today) {
         // 切换日期的时候需要更改
-        config.set(luckyNumber, Common.getLuckNumber())
+        config.set(mainConstant.MAIN_DATA_LUCKY_NUMBER, Common.getLuckNumber())
     }
     console.log(
         'today\'s lucky number:  ',
-        chalk.underline.bold.red(config.get(luckyNumber))
+        chalk.underline.bold.red(config.get(mainConstant.MAIN_DATA_LUCKY_NUMBER))
     )
 };
