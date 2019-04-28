@@ -11,8 +11,6 @@ exports.errorHandle = () => {
         );
         process.exit(1)
     }
-    console.log('handle error');
-
     process.on('unhandleRejection', err => {
         console.log(chalk.red(err.message));
         process.exit(1);
