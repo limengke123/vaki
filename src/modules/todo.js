@@ -49,9 +49,28 @@ const todo = (option) => {
     }
     if (option.list) {
         const todoList = config.get(TODO_LIST);
-        const result = todoList.map((item ,index) => {
+        let result = todoList.map((item ,index) => {
             const showIndex = index + 1;
-            return showIndex + '. ' + item.text + ' ' + 'complete: ' + item.isComplete;
+            return {
+                ...item,
+                index: showIndex
+            }
+            // return showIndex + '. ' + item.text + ' ' + 'complete: ' + item.isComplete;
+        });
+        if (option.filter) {
+            if (option.filter === '1') {
+                result = result.filter(item => item.isComplete);
+            } else {
+                result = result.filter(item => !item.isComplete)
+            }
+        }
+        result = result.map(item => {
+            const {
+                index,
+                text,
+                isComplete
+            } = item;
+            return index + '. ' + text + ' ' + 'complete: ' + isComplete
         });
         console.log(
             result.join('\n')
@@ -102,6 +121,7 @@ exports.todoInstall = program => {
         .option('-d --delete <n>', 'delete a todo-item', parseInt)
         .option('-c, --complete <n>', 'complete a todo-item', parseInt)
         .option('-p, --path', 'show the data file path')
+        .option('-f, --filter [isComplete]', 'filter your todo-item by whether is completed')
         .description('a todo-list app!')
         .action(todo);
 };
