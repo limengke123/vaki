@@ -7,6 +7,7 @@ const { Log } = require('../../util');
 const pkg = require('../../../package');
 const defaultConfig = require('./defaultConfig');
 const { luckyNumber } = require('./luckyNumber');
+const { target } = require('./target');
 
 const config = new ConfigStore(mainConstant.MAIN_CONF, defaultConfig);
 
@@ -23,8 +24,11 @@ exports.noOptionHandle = () => {
         font: 'Train'
     }));
     // 显示lucky number
-    if (config.get('luckyNumber')) {
+    if (config.get(mainConstant.MAIN_CONF_LUCKY_NUMBER)) {
         luckyNumber()
+    }
+    if (config.get(mainConstant.MAIN_CONF_TARGET)) {
+        target()
     }
 };
 

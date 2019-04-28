@@ -1,3 +1,4 @@
 module.exports = {
-    luckyNumber: true
+    luckyNumber: true,
+    target: 3
 };

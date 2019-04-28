@@ -14,23 +14,31 @@ const getTodoKey = getKeyFactory(NAME_SPACE + 'TODO_');
 
 // 主模块
 const MAIN_CONF = getMainKey(CONF);
+const MAIN_CONF_TARGET = 'target';
+const MAIN_CONF_LUCKY_NUMBER = 'luckyNumber';
+
 const MAIN_DATA = getMainKey(DATA);
 const MAIN_DATA_LUCKY_NUMBER = 'luckyNumber';
 const MAIN_DATA_DATE = 'date';
 
 // tool
 const TOOL_CONF = getToolKey(CONF);
+
 const TOOL_COMMAND_NAME = 'tool';
 
 // todos
+const TODO_COMMAND_NAME = 'todo';
+
 const TODO_CONF = getTodoKey(CONF);
+
 const TODO_DATA = getTodoKey(DATA + Time.today);
 const TODO_DATA_LIST = 'TODO_LIST';
-const TODO_COMMAND_NAME = 'todo';
 
 module.exports = {
     mainConstant: {
         MAIN_CONF,
+        MAIN_CONF_TARGET,
+        MAIN_CONF_LUCKY_NUMBER,
         MAIN_DATA,
         MAIN_DATA_LUCKY_NUMBER,
         MAIN_DATA_DATE
