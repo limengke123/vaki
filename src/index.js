@@ -3,7 +3,7 @@ const program = require('commander');
 const pkg = require('../package');
 const { todoInstall } = require('./modules/todo');
 const { stockInstall } = require('./modules/stock');
-const { toolInstall } = require('./modules/tool');
+const { toolInstall } = require('./modules/tool/index');
 const { mainHandle } = require('./modules/main/index');
 const { errorHandle } = require('./error');
 

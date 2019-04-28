@@ -51,10 +51,29 @@ const Time = {
     }
 };
 
+// Tool模块
+const Tool = {
+    transformToLink (str) {
+        // 让一个类链接变成一个链接
+        const prefix = 'http://';
+        if (Tool.checkIsLinkLike(str) && !~str.indexOf(prefix)) {
+            return prefix + str;
+        }
+        return str;
+    },
+    checkIsLinkLike (str) {
+        // 检测一个字符串是不是一个类链接
+        // http://xxx 、xxx.com字样 、http://xxx.net
+        const reg = /^(https?:\/\/)?\w+\.[a-z0-9_.]+/g;
+        return reg.test(str);
+    }
+};
+
 module.exports = {
     error: Log.error,
     Log,
     Helper,
     Time,
-    Common
+    Common,
+    Tool
 };
