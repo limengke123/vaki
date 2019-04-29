@@ -11,7 +11,7 @@ const { errorHandle } = require('./error')
 errorHandle()
 
 program.version(
-    chalk.greenBright('v' + pkg.version),
+    chalk.underline.bold.greenBright('v' + pkg.version),
     '-v, --version'
 )
 
