@@ -7,7 +7,7 @@ const { errorHandle } = require('./error')
 const { todoInstall } = require('./modules/todo')
 const { stockInstall } = require('./modules/stock')
 const { toolInstall } = require('./modules/tool/index')
-const { readingInstall } = require('./modules/reading/index')
+const { readingInstall } = require('./modules/read/index')
 
 errorHandle()
 
