@@ -12,8 +12,7 @@ exports.target = () => {
         target = parseInt(target)
         let result = todoList.filter(item => !item.isComplete)
         if (result.length) {
-            console.log('target: ')
-            for (let i = 0; i <= target && i < result.length; i++) {
+            for (let i = 0; i < target && i < result.length; i++) {
                 const item = result[i]
                 console.log(
                     `${i + 1}. `,
