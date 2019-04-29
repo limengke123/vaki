@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 const program = require('commander')
+const chalk = require('chalk')
 const pkg = require('../package')
 const { todoInstall } = require('./modules/todo')
 const { stockInstall } = require('./modules/stock')
@@ -9,7 +10,10 @@ const { errorHandle } = require('./error')
 
 errorHandle()
 
-program.version(pkg.version, '-v, --version')
+program.version(
+    chalk.greenBright('v' + pkg.version),
+    '-v, --version'
+)
 
 mainInstall(program)
 // install sub-command
