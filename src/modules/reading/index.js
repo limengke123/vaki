@@ -1,8 +1,13 @@
+const child_process = require('child_process')
 const clear = require('clear')
 const figlet = require('figlet')
-const { readingConstant } = require('../../constant')
+const ConfigStore = require('configstore')
+const { Log } = require('../../util')
+const { readConstant } = require('../../constant')
+const defaultConfig = require('./defaultConfig')
 const { segementFaultHandler } = require('./sites/segementFault')
 
+const config = new ConfigStore(readConstant.READ_CONF, defaultConfig)
 
 const reading = option => {
 
@@ -10,10 +15,16 @@ const reading = option => {
         segementFaultHandler()
     }
 
+    if (option.edit) {
+        child_process.spawn('vim', [config.path], {
+            stdio: 'inherit'
+        })
+    }
+
     if (option.parent.rawArgs.length === 3) {
         // 没有输入的时候
         clear()
-        Log.green(figlet.textSync(readingConstant.READING_COMMAND_NAME, {
+        Log.green(figlet.textSync(readConstant.READ_COMMAND_NAME, {
             horizontalLayout: 'fitted',
             font: 'Sub-Zero',
         }))
@@ -23,9 +34,10 @@ const reading = option => {
 
 exports.readingInstall = program => {
     program
-        .command(readingConstant.READING_COMMAND_NAME)
+        .command(readConstant.READ_COMMAND_NAME)
         .alias('r')
         .option('-s, --segementFault', 'get interesting things from segementFault.com')
+        .option('-e, --edit', 'edit your config file of read module')
         .description('reading some thing interesting')
         .action(reading)
 }

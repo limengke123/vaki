@@ -1,6 +1,11 @@
 const Araneida = require('araneida')
-const { segementFault } = require('../spider.config')
 const ora = require('ora')
+const ConfigStore = require('configstore')
+const { segementFault } = require('../spider.config')
+const defaultConfig = require('../defaultConfig')
+const { readConstant } = require('../../../constant')
+
+const config = new ConfigStore(readConstant.READ_CONF, defaultConfig)
 
 const spinner = ora({
     spinner: 'dots',
@@ -12,6 +17,8 @@ exports.segementFaultHandler = () => {
         links: segementFault,
         done: data => {
             spinner.stop();
+            const { length } = config.get(readConstant.READ_CONF_SEGE)
+            data = data.slice(0, length)
             const result = data.map((item, index) => (index + 1) + '.' + item.title)
             console.log(result.join('\n'))
         }

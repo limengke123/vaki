@@ -11,7 +11,7 @@ const getMainKey = getKeyFactory(NAME_SPACE + 'MAIN_')
 // 子模块key
 const getToolKey = getKeyFactory(NAME_SPACE + 'TOOL_')
 const getTodoKey = getKeyFactory(NAME_SPACE + 'TODO_')
-const getReadingKey = getKeyFactory(NAME_SPACE + 'READING_')
+const getReadKey = getKeyFactory(NAME_SPACE + 'READ_')
 
 ///------------------- main -------------------///
     ///----- main_conf -----///
@@ -49,10 +49,14 @@ const TODO_DATA_LIST = 'TODO_LIST'
 ///------------------- todos -------------------///
 
 
-///------------------- reading -------------------///
-    ///----- reading_name -----///
-const READING_COMMAND_NAME = 'reading'
-///------------------- reading -------------------///
+///------------------- read -------------------///
+    ///----- read_name -----///
+const READ_COMMAND_NAME = 'read'
+
+    ///----- read_conf -----///
+const READ_CONF = getReadKey(CONF)
+const READ_CONF_SEGE = 'segementFault'
+///------------------- read -------------------///
 
 
 module.exports = {
@@ -74,7 +78,9 @@ module.exports = {
         TODO_DATA_LIST,
         TODO_COMMAND_NAME
     },
-    readingConstant: {
-        READING_COMMAND_NAME
+    readConstant: {
+        READ_COMMAND_NAME,
+        READ_CONF,
+        READ_CONF_SEGE
     }
 }
