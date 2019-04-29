@@ -1,26 +1,26 @@
 #!/usr/bin/env node
-const program = require('commander');
-const pkg = require('../package');
-const { todoInstall } = require('./modules/todo');
-const { stockInstall } = require('./modules/stock');
-const { toolInstall } = require('./modules/tool/index');
-const { noOptionHandle, mainInstall, mainHandle } = require('./modules/main/index');
-const { errorHandle } = require('./error');
+const program = require('commander')
+const pkg = require('../package')
+const { todoInstall } = require('./modules/todo')
+const { stockInstall } = require('./modules/stock')
+const { toolInstall } = require('./modules/tool/index')
+const { noOptionHandle, mainInstall, mainHandle } = require('./modules/main/index')
+const { errorHandle } = require('./error')
 
-errorHandle();
+errorHandle()
 
-program.version(pkg.version, '-v, --version');
+program.version(pkg.version, '-v, --version')
 
-mainInstall(program);
+mainInstall(program)
 // install sub-command
-todoInstall(program);
-stockInstall(program);
-toolInstall(program);
+todoInstall(program)
+stockInstall(program)
+toolInstall(program)
 
-program.parse(process.argv);
+program.parse(process.argv)
 
-mainHandle(program);
+mainHandle(program)
 
 if (process.argv.length === 2) {
-    noOptionHandle(program);
+    noOptionHandle(program)
 }

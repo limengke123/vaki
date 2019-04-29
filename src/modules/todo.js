@@ -9,52 +9,52 @@
  * @example complete a todo-item
  * van todo -c {index | key}
  * */
-const ConfigStore = require('configstore');
-const figlet = require('figlet');
-const clear = require('clear');
-const { Helper, error, Log } = require('../util');
-const { todoConstant } = require('../constant');
+const ConfigStore = require('configstore')
+const figlet = require('figlet')
+const clear = require('clear')
+const { Helper, error, Log } = require('../util')
+const { todoConstant } = require('../constant')
 
-const config = new ConfigStore(todoConstant.TODO_DATA, {[todoConstant.TODO_DATA_LIST]: []});
+const config = new ConfigStore(todoConstant.TODO_DATA, {[todoConstant.TODO_DATA_LIST]: []})
 
 const todo = (option) => {
     if (option.add) {
         try {
-            let todoList = config.get(todoConstant.TODO_DATA_LIST);
+            let todoList = config.get(todoConstant.TODO_DATA_LIST)
             const arr = option.add.map(item => ({
                 text: item,
                 isComplete: false,
-            }));
-            todoList = todoList.concat(...arr);
-            config.set(todoConstant.TODO_DATA_LIST, todoList);
-            console.log('add success');
+            }))
+            todoList = todoList.concat(...arr)
+            config.set(todoConstant.TODO_DATA_LIST, todoList)
+            console.log('add success')
         } catch (e) {
-            error(e.message);
+            error(e.message)
         }
     }
     if (option.delete) {
         try {
-            const indexArg = option.delete - 1;
-            let todoList = config.get(todoConstant.TODO_DATA_LIST);
-            todoList.splice(indexArg, 1);
-            config.set(todoConstant.TODO_DATA_LIST, todoList);
+            const indexArg = option.delete - 1
+            let todoList = config.get(todoConstant.TODO_DATA_LIST)
+            todoList.splice(indexArg, 1)
+            config.set(todoConstant.TODO_DATA_LIST, todoList)
             console.log('delete success')
         } catch (e) {
-            error(e.message);
+            error(e.message)
         }
     }
     if (option.list) {
-        const todoList = config.get(todoConstant.TODO_DATA_LIST);
+        const todoList = config.get(todoConstant.TODO_DATA_LIST)
         let result = todoList.map((item ,index) => {
-            const showIndex = index + 1;
+            const showIndex = index + 1
             return {
                 ...item,
                 index: showIndex
             }
-        });
+        })
         if (option.filter) {
             if (option.filter === '1') {
-                result = result.filter(item => item.isComplete);
+                result = result.filter(item => item.isComplete)
             } else {
                 result = result.filter(item => !item.isComplete)
             }
@@ -64,17 +64,17 @@ const todo = (option) => {
                 index,
                 text,
                 isComplete
-            } = item;
+            } = item
             return index + '. ' + text + ' ' + 'complete: ' + isComplete
-        });
+        })
         console.log(
             result.join('\n')
-        );
+        )
     }
     if (option.complete) {
         try {
-            let todoList = config.get(todoConstant.TODO_DATA_LIST);
-            const indexArg = option.complete - 1;
+            let todoList = config.get(todoConstant.TODO_DATA_LIST)
+            const indexArg = option.complete - 1
             if (indexArg > todoList.length) {
                 return error('没有这个todo-item')
             }
@@ -85,27 +85,27 @@ const todo = (option) => {
                         isComplete: !item.isComplete
                     }
                 }
-                return item;
-            });
-            config.set(todoConstant.TODO_DATA_LIST, todoList);
+                return item
+            })
+            config.set(todoConstant.TODO_DATA_LIST, todoList)
         } catch (e) {
-            error(e.message);
+            error(e.message)
         }
     }
 
     if (option.path) {
-        console.log(config.path);
+        console.log(config.path)
     }
     if (option.parent.rawArgs.length === 3) {
         // 没有输入的时候
-        clear();
+        clear()
         Log.green(figlet.textSync(todoConstant.TODO_COMMAND_NAME, {
             horizontalLayout: 'fitted',
             font: 'Sub-Zero',
-        }));
-        option.help();
+        }))
+        option.help()
     }
-};
+}
 
 exports.todoInstall = program => {
     program
@@ -118,5 +118,5 @@ exports.todoInstall = program => {
         .option('-p, --path', 'show the data file path')
         .option('-f, --filter [isComplete]', 'filter your todo-item by whether is completed')
         .description('a todo-list app!')
-        .action(todo);
-};
+        .action(todo)
+}

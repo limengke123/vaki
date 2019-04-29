@@ -1,14 +1,14 @@
-const child_process = require('child_process');
-const opener = require('opener');
-const ConfigStore = require('configstore');
-const clear = require('clear');
-const figlet = require('figlet');
-const { Helper, Tool, Log } = require('../../util');
-const { TOOL_CONF } = require('../../constant');
-const defaultConfig = require('./defaultConfig');
+const child_process = require('child_process')
+const opener = require('opener')
+const ConfigStore = require('configstore')
+const clear = require('clear')
+const figlet = require('figlet')
+const { Helper, Tool, Log } = require('../../util')
+const { TOOL_CONF } = require('../../constant')
+const defaultConfig = require('./defaultConfig')
 
-const COMMAND_NAME = 'tool';
-const config = new ConfigStore(TOOL_CONF, defaultConfig);
+const COMMAND_NAME = 'tool'
+const config = new ConfigStore(TOOL_CONF, defaultConfig)
 
 const tool = option => {
     if (option.open) {
@@ -18,14 +18,14 @@ const tool = option => {
                 opener(Tool.transformToLink(str))
             } else {
                 // 检测是否是在config配置过的页面
-                const sites = config.get('sites');
-                const siteArr = sites.filter(site => site.name === str || site.alias === str);
+                const sites = config.get('sites')
+                const siteArr = sites.filter(site => site.name === str || site.alias === str)
                 if (siteArr.length) {
-                    const targetSite = siteArr[0];
+                    const targetSite = siteArr[0]
                     if (targetSite.search && option.search) {
-                        opener(targetSite.search + option.search);
+                        opener(targetSite.search + option.search)
                     } else {
-                        opener(targetSite.url);
+                        opener(targetSite.url)
                     }
                 } else {
                     opener(str)
@@ -37,19 +37,19 @@ const tool = option => {
         // 直接vim修改配置文件
         child_process.spawn('vim', [config.path], {
             stdio: 'inherit'
-        });
+        })
     }
 
     if (option.parent.rawArgs.length === 3) {
         // 没有输入的时候
-        clear();
+        clear()
         Log.green(figlet.textSync(COMMAND_NAME, {
             horizontalLayout: 'fitted',
             font: 'Sub-Zero',
-        }));
-        option.help();
+        }))
+        option.help()
     }
-};
+}
 
 exports.toolInstall = program => {
     program
@@ -60,4 +60,4 @@ exports.toolInstall = program => {
         .option('-e, --edit', 'edit your config file')
         .description('some useful third part tools')
         .action(tool)
-};
+}

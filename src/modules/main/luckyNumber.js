@@ -1,9 +1,9 @@
-const chalk = require('chalk');
-const ConfigStore = require('configstore');
-const { mainConstant } = require('../../constant');
-const { Time, Common } = require('../../util');
+const chalk = require('chalk')
+const ConfigStore = require('configstore')
+const { mainConstant } = require('../../constant')
+const { Time, Common } = require('../../util')
 
-const config = new ConfigStore(mainConstant.MAIN_DATA);
+const config = new ConfigStore(mainConstant.MAIN_DATA)
 
 exports.luckyNumber = () => {
     if (!config.get(mainConstant.MAIN_DATA_DATE)) {
@@ -21,4 +21,4 @@ exports.luckyNumber = () => {
         'today\'s lucky number:  ',
         chalk.underline.bold.red(config.get(mainConstant.MAIN_DATA_LUCKY_NUMBER))
     )
-};
+}

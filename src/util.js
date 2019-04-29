@@ -1,6 +1,6 @@
-const chalk = require('chalk');
-const padStart = String.prototype.padStart;
-const log = console.log;
+const chalk = require('chalk')
+const padStart = String.prototype.padStart
+const log = console.log
 
 const format = (label, msg) => {
     return msg.split('\n').map((line, i) => {
@@ -8,15 +8,15 @@ const format = (label, msg) => {
             ? `${label} ${line}`
             : padStart(line, chalk.reset(label).length)
     }).join('\n')
-};
+}
 
-const chalkTag = msg => chalk.bgBlackBright.white.dim(` ${msg} `);
+const chalkTag = msg => chalk.bgBlackBright.white.dim(` ${msg} `)
 
 const Log = {
     error(message, tag) {
         log(format(chalk.bgGreen.black(' ERROR ') +
             (tag ? chalkTag(tag) : ''),
-            message)
+        message)
         )
     },
     green(message) {
@@ -25,49 +25,49 @@ const Log = {
     blue(message) {
         log(chalk.blue(message))
     }
-};
+}
 
 const Helper = {
     getArr(str, separator = ',') {
-        return str.split(separator);
+        return str.split(separator)
     }
-};
+}
 
 const Common = {
     getLuckNumber () {
         return ~~(Math.random() * 10)
     }
-};
+}
 
 const Time = {
     get today () {
-        const date = new Date();
+        const date = new Date()
         const dateArr = [
             date.getFullYear(),
             date.getMonth() + 1,
             date.getDate()
-        ];
-        return dateArr.join('-');
+        ]
+        return dateArr.join('-')
     }
-};
+}
 
 // Tool模块
 const Tool = {
     transformToLink (str) {
         // 让一个类链接变成一个链接
-        const prefix = 'http://';
+        const prefix = 'http://'
         if (Tool.checkIsLinkLike(str) && !~str.indexOf(prefix)) {
-            return prefix + str;
+            return prefix + str
         }
-        return str;
+        return str
     },
     checkIsLinkLike (str) {
         // 检测一个字符串是不是一个类链接
         // http://xxx 、xxx.com字样 、http://xxx.net
-        const reg = /^(https?:\/\/)?\w+\.[a-z0-9_.]+/g;
-        return reg.test(str);
+        const reg = /^(https?:\/\/)?\w+\.[a-z0-9_.]+/g
+        return reg.test(str)
     }
-};
+}
 
 module.exports = {
     error: Log.error,
@@ -76,4 +76,4 @@ module.exports = {
     Time,
     Common,
     Tool
-};
+}

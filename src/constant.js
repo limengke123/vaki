@@ -1,38 +1,38 @@
-const { Time } = require('./util');
+const { Time } = require('./util')
 
-const NAME_SPACE = 'VAKI_';
-const CONF = 'CONF';
-const DATA = 'DATA';
+const NAME_SPACE = 'VAKI_'
+const CONF = 'CONF'
+const DATA = 'DATA'
 
-const getKeyFactory = namespace => key => namespace + key;
+const getKeyFactory = namespace => key => namespace + key
 
 // 主模块key
-const getMainKey = getKeyFactory(NAME_SPACE + 'MAIN_');
+const getMainKey = getKeyFactory(NAME_SPACE + 'MAIN_')
 // 子模块key
-const getToolKey = getKeyFactory(NAME_SPACE + 'TOOL_');
-const getTodoKey = getKeyFactory(NAME_SPACE + 'TODO_');
+const getToolKey = getKeyFactory(NAME_SPACE + 'TOOL_')
+const getTodoKey = getKeyFactory(NAME_SPACE + 'TODO_')
 
 // 主模块
-const MAIN_CONF = getMainKey(CONF);
-const MAIN_CONF_TARGET = 'target';
-const MAIN_CONF_LUCKY_NUMBER = 'luckyNumber';
+const MAIN_CONF = getMainKey(CONF)
+const MAIN_CONF_TARGET = 'target'
+const MAIN_CONF_LUCKY_NUMBER = 'luckyNumber'
 
-const MAIN_DATA = getMainKey(DATA);
-const MAIN_DATA_LUCKY_NUMBER = 'luckyNumber';
-const MAIN_DATA_DATE = 'date';
+const MAIN_DATA = getMainKey(DATA)
+const MAIN_DATA_LUCKY_NUMBER = 'luckyNumber'
+const MAIN_DATA_DATE = 'date'
 
 // tool
-const TOOL_CONF = getToolKey(CONF);
+const TOOL_CONF = getToolKey(CONF)
 
-const TOOL_COMMAND_NAME = 'tool';
+const TOOL_COMMAND_NAME = 'tool'
 
 // todos
-const TODO_COMMAND_NAME = 'todo';
+const TODO_COMMAND_NAME = 'todo'
 
-const TODO_CONF = getTodoKey(CONF);
+const TODO_CONF = getTodoKey(CONF)
 
-const TODO_DATA = getTodoKey(DATA + Time.today);
-const TODO_DATA_LIST = 'TODO_LIST';
+const TODO_DATA = getTodoKey(DATA + Time.today)
+const TODO_DATA_LIST = 'TODO_LIST'
 
 module.exports = {
     mainConstant: {
@@ -53,4 +53,4 @@ module.exports = {
         TODO_DATA_LIST,
         TODO_COMMAND_NAME
     }
-};
+}

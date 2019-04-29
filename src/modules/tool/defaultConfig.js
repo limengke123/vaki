@@ -19,4 +19,4 @@ module.exports = {
             search: 'https://github.com/search?q='
         }
     ]
-};
+}
