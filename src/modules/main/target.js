@@ -19,6 +19,9 @@ exports.target = () => {
                     item.text
                 )
             }
+            if (result.length > target) {
+                console.log('...')
+            }
         } else {
             console.log('you had done all the target today!')
         }
