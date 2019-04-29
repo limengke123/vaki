@@ -2,11 +2,12 @@
 const program = require('commander')
 const chalk = require('chalk')
 const pkg = require('../package')
+const { noOptionHandle, mainInstall, mainHandle } = require('./modules/main/index')
+const { errorHandle } = require('./error')
 const { todoInstall } = require('./modules/todo')
 const { stockInstall } = require('./modules/stock')
 const { toolInstall } = require('./modules/tool/index')
-const { noOptionHandle, mainInstall, mainHandle } = require('./modules/main/index')
-const { errorHandle } = require('./error')
+const { readingInstall } = require('./modules/reading/index')
 
 errorHandle()
 
@@ -20,6 +21,7 @@ mainInstall(program)
 todoInstall(program)
 stockInstall(program)
 toolInstall(program)
+readingInstall(program)
 
 program.parse(process.argv)
 
