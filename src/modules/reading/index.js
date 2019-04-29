@@ -1,16 +1,13 @@
-const child_process = require('child_process')
-const opener = require('opener')
-const ConfigStore = require('configstore')
 const clear = require('clear')
 const figlet = require('figlet')
-const { Helper, Tool, Log } = require('../../util')
 const { readingConstant } = require('../../constant')
+const { segementFaultHandler } = require('./sites/segementFault')
 
 
 const reading = option => {
 
-    if (option.zhihu) {
-        console.log(option.zhihu)
+    if (option.segementFault) {
+        segementFaultHandler()
     }
 
     if (option.parent.rawArgs.length === 3) {
@@ -28,7 +25,7 @@ exports.readingInstall = program => {
     program
         .command(readingConstant.READING_COMMAND_NAME)
         .alias('r')
-        .option('-z, --zhihu', 'get interesting things from zhihu.com')
+        .option('-s, --segementFault', 'get interesting things from segementFault.com')
         .description('reading some thing interesting')
         .action(reading)
 }
