@@ -36,6 +36,16 @@ const Helper = {
 const Common = {
     getLuckNumber () {
         return ~~(Math.random() * 10)
+    },
+    getTitle(str, color = 'green') {
+        const baseLength = 30
+        const lastSpace = baseLength - str.length
+        const left = ~~(lastSpace / 2)
+        const right = lastSpace - left
+        const title = chalk[color].bold.underline(str)
+        const leftString = Array.from({length: left}).fill('=').join('')
+        const rightString = Array.from({length: right}).fill('=').join('')
+        return leftString + ' ' + title + ' ' + rightString
     }
 }
 

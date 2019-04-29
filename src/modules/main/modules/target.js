@@ -1,5 +1,6 @@
 const ConfigStore = require('configstore')
 const chalk = require('chalk')
+const { Common } = require('../../../util')
 const { todoConstant, mainConstant } = require('../../../constant')
 
 const mainConfConfig = new ConfigStore(mainConstant.MAIN_CONF)
@@ -10,11 +11,7 @@ const todoList = todoConfig.get(todoConstant.TODO_DATA_LIST)
 
 exports.target = () => {
     console.log(' ')
-    console.log(
-        '============',
-        chalk.bold.underline.green('target'),
-        '============'
-    )
+    console.log(Common.getTitle('target'))
     if (todoList.length) {
         target = parseInt(target)
         let result = todoList.filter(item => !item.isComplete)
