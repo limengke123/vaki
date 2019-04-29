@@ -6,8 +6,8 @@ const { mainConstant } = require('../../constant')
 const { Log } = require('../../util')
 const pkg = require('../../../package')
 const defaultConfig = require('./defaultConfig')
-const { luckyNumber } = require('./luckyNumber')
-const { target } = require('./target')
+const { luckyNumber } = require('./modules/luckyNumber')
+const { target } = require('./modules/target')
 
 const config = new ConfigStore(mainConstant.MAIN_CONF, defaultConfig)
 
@@ -23,10 +23,12 @@ exports.noOptionHandle = () => {
         horizontalLayout: 'fitted',
         font: 'Train'
     }))
+    // 基本信息
     // 显示lucky number
     if (config.get(mainConstant.MAIN_CONF_LUCKY_NUMBER)) {
         luckyNumber()
     }
+    // 显示目标
     if (config.get(mainConstant.MAIN_CONF_TARGET)) {
         target()
     }

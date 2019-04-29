@@ -1,6 +1,6 @@
 const ConfigStore = require('configstore')
 const chalk = require('chalk')
-const { todoConstant, mainConstant } = require('../../constant')
+const { todoConstant, mainConstant } = require('../../../constant')
 
 const mainConfConfig = new ConfigStore(mainConstant.MAIN_CONF)
 const todoConfig = new ConfigStore(todoConstant.TODO_DATA)
