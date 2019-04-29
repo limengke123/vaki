@@ -15,6 +15,7 @@ exports.luckyNumber = () => {
     }
     if (config.get(mainConstant.MAIN_DATA_DATE) !== Time.today) {
         // 切换日期的时候需要更改
+        config.set(mainConstant.MAIN_DATA_DATE, Time.today)
         config.set(mainConstant.MAIN_DATA_LUCKY_NUMBER, Common.getLuckNumber())
     }
     console.log(
