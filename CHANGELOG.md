@@ -1,3 +1,24 @@
+## [0.4.2](https://github.com/limengke123/van/compare/v0.4.1...v0.4.2) (2019-04-29)
+
+
+### Bug Fixes
+
+* **main:** 修复target的显示长度的错误 ([88a112a](https://github.com/limengke123/van/commit/88a112a))
+* **main:** 修复幸运数字不会随着日期变化 ([403d192](https://github.com/limengke123/van/commit/403d192))
+* **main:** 修复长度超过设置默认值时未能显示... ([a148401](https://github.com/limengke123/van/commit/a148401))
+* **tool:** 修复配置文件路径名错误 ([dde7a07](https://github.com/limengke123/van/commit/dde7a07))
+
+
+### Features
+
+* **main:** version颜色显示改为绿色 ([bfd8333](https://github.com/limengke123/van/commit/bfd8333))
+* **main:** version颜色显示改为绿色加下划线 ([db5be55](https://github.com/limengke123/van/commit/db5be55))
+* **read:** 加入配置文件，默认只显示10条数据 ([eaacb09](https://github.com/limengke123/van/commit/eaacb09))
+* **reading:** 新增reading模块 ([05fef48](https://github.com/limengke123/van/commit/05fef48))
+* **reading:** 新增segementFault搜索功能 ([457baad](https://github.com/limengke123/van/commit/457baad))
+
+
+
 ## [0.4.1](https://github.com/limengke123/van/compare/v0.4.0...v0.4.1) (2019-04-28)
 
 
