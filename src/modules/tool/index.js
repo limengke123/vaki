@@ -4,11 +4,10 @@ const ConfigStore = require('configstore')
 const clear = require('clear')
 const figlet = require('figlet')
 const { Helper, Tool, Log } = require('../../util')
-const { TOOL_CONF } = require('../../constant')
+const { toolConstant } = require('../../constant')
 const defaultConfig = require('./defaultConfig')
 
-const COMMAND_NAME = 'tool'
-const config = new ConfigStore(TOOL_CONF, defaultConfig)
+const config = new ConfigStore(toolConstant.TOOL_CONF, defaultConfig)
 
 const tool = option => {
     if (option.open) {
@@ -43,7 +42,7 @@ const tool = option => {
     if (option.parent.rawArgs.length === 3) {
         // 没有输入的时候
         clear()
-        Log.green(figlet.textSync(COMMAND_NAME, {
+        Log.green(figlet.textSync(toolConstant.TOOL_COMMAND_NAME, {
             horizontalLayout: 'fitted',
             font: 'Sub-Zero',
         }))
@@ -53,7 +52,7 @@ const tool = option => {
 
 exports.toolInstall = program => {
     program
-        .command(COMMAND_NAME)
+        .command(toolConstant.TOOL_COMMAND_NAME)
         .alias('o')
         .option('-o, --open <urls>', 'open the urls in browser', Helper.getArr)
         .option('-s, --search <any>', 'add search condition in baidu or some other site')
