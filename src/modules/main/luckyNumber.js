@@ -18,6 +18,11 @@ exports.luckyNumber = () => {
         config.set(mainConstant.MAIN_DATA_DATE, Time.today)
         config.set(mainConstant.MAIN_DATA_LUCKY_NUMBER, Common.getLuckNumber())
     }
+    console.log(" ")
+    console.log(
+        '=========',
+        chalk.bold.underline.green('lucky number'),
+        '=========')
     console.log(
         'today\'s lucky number:  ',
         chalk.underline.bold.red(config.get(mainConstant.MAIN_DATA_LUCKY_NUMBER))
