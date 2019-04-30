@@ -1,6 +1,7 @@
 const Araneida = require('araneida')
 const ora = require('ora')
 const ConfigStore = require('configstore')
+const chalk = require('chalk')
 const { segementFault } = require('../spider.config')
 const defaultConfig = require('../defaultConfig')
 const { readConstant } = require('../../../constant')
@@ -9,7 +10,7 @@ const config = new ConfigStore(readConstant.READ_CONF, defaultConfig)
 
 const spinner = ora({
     spinner: 'dots',
-    text: '拼命加载中...'
+    text: chalk.yellow('segementFault数据正在拼命加载中...')
 })
 
 exports.segementFaultHandler = () => {
