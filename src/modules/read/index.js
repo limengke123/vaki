@@ -6,6 +6,7 @@ const { Log } = require('../../util')
 const { readConstant } = require('../../constant')
 const defaultConfig = require('./defaultConfig')
 const { segementFaultHandler } = require('./sites/segementFault')
+const { microBlogFaultHandler } = require('./sites/microBlog')
 
 const config = new ConfigStore(readConstant.READ_CONF, defaultConfig)
 
@@ -13,6 +14,10 @@ const reading = option => {
 
     if (option.segementFault) {
         segementFaultHandler()
+    }
+
+    if (option.weibo) {
+        microBlogFaultHandler()
     }
 
     if (option.edit) {
@@ -37,6 +42,7 @@ exports.readingInstall = program => {
         .command(readConstant.READ_COMMAND_NAME)
         .alias('r')
         .option('-s, --segementFault', 'get interesting things from segementFault.com')
+        .option('-w, --weibo', 'get hottest news from weibo')
         .option('-e, --edit', 'edit your config file of read module')
         .description('reading some thing interesting')
         .action(reading)

@@ -56,6 +56,7 @@ const READ_COMMAND_NAME = 'read'
     ///----- read_conf -----///
 const READ_CONF = getReadKey(CONF)
 const READ_CONF_SEGE = 'segementFault'
+const READ_CONF_BLOG = 'microBlog'
 ///------------------- read -------------------///
 
 
@@ -81,6 +82,7 @@ module.exports = {
     readConstant: {
         READ_COMMAND_NAME,
         READ_CONF,
-        READ_CONF_SEGE
+        READ_CONF_SEGE,
+        READ_CONF_BLOG
     }
 }

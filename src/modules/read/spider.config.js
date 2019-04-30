@@ -19,6 +19,36 @@ const segementFault = {
     }
 }
 
+const microBlog = {
+    url: 'https://s.weibo.com/top/summary?Refer=top_hot&topnav=1&wvr=6',
+    rules: {
+        list: 'tbody tr',
+        rule: {
+            rank: {
+                type: 'text',
+                path: '.td-01'
+            },
+            title: {
+                type: 'text',
+                path: '.td-02 a'
+            },
+            url: {
+                type: 'href',
+                path: '.td-02 a'
+            },
+            hot: {
+                type: 'text',
+                path: '.td-02 span'
+            },
+            label: {
+                type: 'text',
+                path: 'td-03 i'
+            }
+        }
+    }
+}
+
 module.exports = {
-    segementFault
+    segementFault,
+    microBlog
 }
