@@ -1,3 +1,16 @@
+## [0.4.3](https://github.com/limengke123/van/compare/v0.4.2...v0.4.3) (2019-04-30)
+
+
+### Features
+
+* 修改加载中的样式显示 ([eaaea9f](https://github.com/limengke123/van/commit/eaaea9f))
+* **main:** 加上一些基本信息 ([63b745a](https://github.com/limengke123/van/commit/63b745a))
+* **read:** read上加入可选长度选项，同时默认配置的长度改为20 ([7320bd3](https://github.com/limengke123/van/commit/7320bd3))
+* **read:** 增加all选项，一次行返回所有数据 ([371acf9](https://github.com/limengke123/van/commit/371acf9))
+* **reading:** reading模块加上了weibo新功能 ([b5c5f7c](https://github.com/limengke123/van/commit/b5c5f7c))
+
+
+
 ## [0.4.2](https://github.com/limengke123/van/compare/v0.4.1...v0.4.2) (2019-04-29)
 
 
