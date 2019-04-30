@@ -185,9 +185,9 @@ any-observable@^0.3.0:
   integrity sha512-/FQM1EDkTsf63Ub2C6O7GuYFDsSXUwsaZDurV0np41ocwq0jthUAYCmhBX9f+KwlaCgIuWyr/4WlUQUBfKfZog==
 
 araneida@^1.0.3:
-  version "1.0.4"
-  resolved "https://registry.npmjs.org/araneida/-/araneida-1.0.4.tgz#3b8389401dfb4a010c87958c9b3fcc986d078144"
-  integrity sha512-vWuA9zffwiedg67MTO5zGOMi6m0lkBWv5cMLKmv4teQixdz+dF2OlH0nBNizTBMgm2PjGMqBZ1uyk/semtEmFA==
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/araneida/-/araneida-1.0.5.tgz#d9ccf4c61901adc7b6130e9a7271f4b8672a1212"
+  integrity sha512-zIrEONoOuoK/YJHWILt7UzvcSbBErc90NStZ3LoydUEASJT1YTsZ9M6Z55LWYmE8MSgJo+W0vjYH2i22LgVnpQ==
   dependencies:
     chalk "^2.4.1"
     cheerio "^1.0.0-rc.2"

@@ -6,6 +6,7 @@ const { mainConstant } = require('../../constant')
 const { Log } = require('../../util')
 const pkg = require('../../../package')
 const defaultConfig = require('./defaultConfig')
+const { baseInfo } = require('./modules/baseInfo')
 const { luckyNumber } = require('./modules/luckyNumber')
 const { target } = require('./modules/target')
 
@@ -24,6 +25,7 @@ exports.noOptionHandle = () => {
         font: 'Train'
     }))
     // 基本信息
+    baseInfo()
     // 显示lucky number
     if (config.get(mainConstant.MAIN_CONF_LUCKY_NUMBER)) {
         luckyNumber()
