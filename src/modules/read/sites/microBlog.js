@@ -13,13 +13,16 @@ const spinner = ora({
     text: chalk.yellow('微博数据正在拼命加载中...')
 })
 
-exports.microBlogFaultHandler = () => {
+exports.microBlogFaultHandler = option => {
     // console.log(config.get(readConstant.READ_CONF_BLOG))
     const spider = new Araneida({
         links: microBlog,
         done: data => {
             spinner.stop();
-            const { length } = config.get(readConstant.READ_CONF_BLOG)
+            let { length } = config.get(readConstant.READ_CONF_BLOG)
+            if (option.length) {
+                length = option.length
+            }
             data = data.slice(0, length)
             const result = data.map((item, index) => (index + 1) + '.' + item.title)
             console.log(result.join('\n'))

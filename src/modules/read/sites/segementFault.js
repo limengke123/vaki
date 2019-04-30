@@ -13,12 +13,15 @@ const spinner = ora({
     text: chalk.yellow('segementFault数据正在拼命加载中...')
 })
 
-exports.segementFaultHandler = () => {
+exports.segementFaultHandler = option => {
     const spider = new Araneida({
         links: segementFault,
         done: data => {
             spinner.stop();
-            const { length } = config.get(readConstant.READ_CONF_SEGE)
+            let { length } = config.get(readConstant.READ_CONF_SEGE)
+            if (option.length) {
+                length = option.length
+            }
             data = data.slice(0, length)
             const result = data.map((item, index) => (index + 1) + '.' + item.title)
             console.log(result.join('\n'))

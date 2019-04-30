@@ -13,11 +13,11 @@ const config = new ConfigStore(readConstant.READ_CONF, defaultConfig)
 const reading = option => {
 
     if (option.segementFault) {
-        segementFaultHandler()
+        segementFaultHandler(option)
     }
 
     if (option.weibo) {
-        microBlogFaultHandler()
+        microBlogFaultHandler(option)
     }
 
     if (option.edit) {
@@ -44,6 +44,7 @@ exports.readingInstall = program => {
         .option('-s, --segementFault', 'get interesting things from segementFault.com')
         .option('-w, --weibo', 'get hottest news from weibo')
         .option('-e, --edit', 'edit your config file of read module')
+        .option('-l, --length <length>', 'show the list length')
         .description('reading some thing interesting')
         .action(reading)
 }
