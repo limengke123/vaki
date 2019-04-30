@@ -45,6 +45,7 @@ exports.readingInstall = program => {
         .option('-w, --weibo', 'get hottest news from weibo')
         .option('-e, --edit', 'edit your config file of read module')
         .option('-l, --length <length>', 'show the list length')
+        .option('-a, --all', 'show all the data regardless the option of [length]')
         .description('reading some thing interesting')
         .action(reading)
 }

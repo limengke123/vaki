@@ -22,7 +22,9 @@ exports.segementFaultHandler = option => {
             if (option.length) {
                 length = option.length
             }
-            data = data.slice(0, length)
+            if (!option.all) {
+                data = data.slice(0, length)
+            }
             const result = data.map((item, index) => (index + 1) + '.' + item.title)
             console.log(result.join('\n'))
         }
