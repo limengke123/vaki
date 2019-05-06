@@ -2,6 +2,7 @@ const Araneida = require('araneida')
 const ora = require('ora')
 const ConfigStore = require('configstore')
 const chalk = require('chalk')
+const terminalLink = require('terminal-link');
 const { microBlog } = require('../spider.config')
 const defaultConfig = require('../defaultConfig')
 const { readConstant } = require('../../../constant')
@@ -26,7 +27,10 @@ exports.microBlogFaultHandler = option => {
             if (!option.all) {
                 data = data.slice(0, length)
             }
-            const result = data.map((item, index) => (index + 1) + '.' + item.title)
+            const result = data.map((item, index) => {
+                const link = terminalLink('link', microBlog.baseUrl + item.url)
+                return (index + 1) + '.' + item.title + ' ' + link
+            })
             console.log(result.join('\n'))
         }
     })

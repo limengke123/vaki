@@ -1,5 +1,6 @@
 const segementFault = {
     url: 'https://segmentfault.com/hottest/weekly',
+    baseUrl: 'https://segmentfault.com',
     rules: {
         list: 'div.news-list .news-item',
         rule: {
@@ -21,6 +22,7 @@ const segementFault = {
 
 const microBlog = {
     url: 'https://s.weibo.com/top/summary?Refer=top_hot&topnav=1&wvr=6',
+    baseUrl: 'https://s.weibo.com',
     rules: {
         list: 'tbody tr',
         rule: {
