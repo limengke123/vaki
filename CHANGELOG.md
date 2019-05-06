@@ -1,3 +1,12 @@
+# [0.5.0](https://github.com/limengke123/van/compare/v0.4.3...v0.5.0) (2019-05-06)
+
+
+### Features
+
+* **read:** 增加微博、segementFault跳转功能 ([d6e70e9](https://github.com/limengke123/van/commit/d6e70e9))
+
+
+
 ## [0.4.3](https://github.com/limengke123/van/compare/v0.4.2...v0.4.3) (2019-04-30)
 
 
