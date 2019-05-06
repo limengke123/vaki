@@ -27,12 +27,16 @@ exports.segementFaultHandler = option => {
                 data = data.slice(0, length)
             }
             const result = data.map((item, index) => {
-                console.log(item.url);
-                if (item.url) {
-                    const link = ' ' + terminalLink('link', segementFault.baseUrl + item.url)
-                    return (index + 1) + '.' + item.title + link
+                const number = index + 1
+                let space = '. '
+                if (number < 10) {
+                    space += ' '
                 }
-                return (index + 1) + '.' + item.title
+                if (item.url) {
+                    let link = ' ----> ' + terminalLink('link', segementFault.baseUrl + item.url)
+                    return number + space + item.title + link
+                }
+                return number + space + item.title
             })
             console.log(result.join('\n'))
         }

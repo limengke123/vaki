@@ -29,7 +29,12 @@ exports.microBlogFaultHandler = option => {
             }
             const result = data.map((item, index) => {
                 const link = terminalLink('link', microBlog.baseUrl + item.url)
-                return (index + 1) + '.' + item.title + ' ' + link
+                const number = index + 1
+                let space = '. '
+                if (number < 10) {
+                    space += ' '
+                }
+                return number + space + item.title + ' ---> ' + link
             })
             console.log(result.join('\n'))
         }
