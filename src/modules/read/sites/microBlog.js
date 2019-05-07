@@ -1,3 +1,4 @@
+const { URL } = require('url')
 const Araneida = require('araneida')
 const ora = require('ora')
 const ConfigStore = require('configstore')
@@ -31,8 +32,10 @@ exports.microBlogFaultHandler = option => {
             if (!option.all) {
                 data = data.slice(0, length)
             }
+            const url = new URL(microBlog.url)
+            const baseUrl = url.origin
             const result = data.map((item, index) => {
-                const link = terminalLink('link', microBlog.baseUrl + item.url)
+                const link = terminalLink('link', baseUrl + item.url)
                 const number = index + 1
                 const hot = item.hot
                 let label = item.label || ''

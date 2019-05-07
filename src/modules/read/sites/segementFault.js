@@ -1,3 +1,4 @@
+const { URL } = require('url')
 const Araneida = require('araneida')
 const ora = require('ora')
 const ConfigStore = require('configstore')
@@ -34,8 +35,10 @@ exports.segementFaultHandler = option => {
                 }
                 let link = ''
                 let stars = ''
+                const url = new URL(segementFault.url)
+                const baseUrl = url.origin
                 if (item.url) {
-                    link = ' ----> ' + terminalLink('link', segementFault.baseUrl + item.url)
+                    link = ' ----> ' + terminalLink('link', baseUrl + item.url)
                 }
                 if (item.stars) {
                     stars = ' ' + chalk.grey(item.stars)
