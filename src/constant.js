@@ -12,6 +12,7 @@ const getMainKey = getKeyFactory(NAME_SPACE + 'MAIN_')
 const getToolKey = getKeyFactory(NAME_SPACE + 'TOOL_')
 const getTodoKey = getKeyFactory(NAME_SPACE + 'TODO_')
 const getReadKey = getKeyFactory(NAME_SPACE + 'READ_')
+const getStockKey = getKeyFactory(NAME_SPACE + 'STOCK_')
 
 ///------------------- main -------------------///
     ///----- main_conf -----///
@@ -60,6 +61,15 @@ const READ_CONF_BLOG = 'microBlog'
 ///------------------- read -------------------///
 
 
+///------------------- stock -------------------///
+    ///----- stock_name -----///
+const STOCK_COMMAND_NAME = 'stock'
+
+    ///----- stock_conf -----///
+const STOCK_CONF = getReadKey(CONF)
+///------------------- read -------------------///
+
+
 module.exports = {
     mainConstant: {
         MAIN_CONF,
@@ -84,5 +94,9 @@ module.exports = {
         READ_CONF,
         READ_CONF_SEGE,
         READ_CONF_BLOG
+    },
+    stockConstant: {
+        STOCK_COMMAND_NAME,
+        STOCK_CONF
     }
 }

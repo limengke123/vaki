@@ -5,7 +5,7 @@ const pkg = require('../package')
 const { noOptionHandle, mainInstall, mainHandle } = require('./modules/main/index')
 const { errorHandle } = require('./error')
 const { todoInstall } = require('./modules/todo')
-const { stockInstall } = require('./modules/stock')
+const { stockInstall } = require('./modules/stock/index')
 const { toolInstall } = require('./modules/tool/index')
 const { readingInstall } = require('./modules/read/index')
 
