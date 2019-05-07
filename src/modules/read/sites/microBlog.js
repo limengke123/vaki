@@ -24,7 +24,10 @@ exports.microBlogFaultHandler = option => {
             if (option.length) {
                 length = option.length
             }
-            data = data.filter(item => item.rank)
+            data = data.filter(item => {
+                // 过滤内容广告和置顶广告
+                return item.rank && item.label !== '荐'
+            })
             if (!option.all) {
                 data = data.slice(0, length)
             }
