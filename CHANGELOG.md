@@ -1,3 +1,12 @@
+## [0.5.1](https://github.com/limengke123/van/compare/v0.5.0...v0.5.1) (2019-05-07)
+
+
+### Features
+
+* **read:** 修改微博、segementFault显示的样式 ([ae7dc9b](https://github.com/limengke123/van/commit/ae7dc9b))
+
+
+
 # [0.5.0](https://github.com/limengke123/van/compare/v0.4.3...v0.5.0) (2019-05-06)
 
 
