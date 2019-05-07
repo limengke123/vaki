@@ -1,3 +1,12 @@
+## [0.5.2](https://github.com/limengke123/van/compare/v0.5.1...v0.5.2) (2019-05-07)
+
+
+### Features
+
+* **read:** 过滤掉微博内容中的广告 ([e3a0de3](https://github.com/limengke123/van/commit/e3a0de3))
+
+
+
 ## [0.5.1](https://github.com/limengke123/van/compare/v0.5.0...v0.5.1) (2019-05-07)
 
 
