@@ -6,7 +6,7 @@ const segementFault = {
         rule: {
             url: {
                 type: 'href',
-                path: 'a.news-img'
+                path: 'a'
             },
             title: {
                 type: 'text',
@@ -14,8 +14,12 @@ const segementFault = {
             },
             stars: {
                 type: 'text',
-                path: 'span.votes-num.hot'
-            }
+                path: 'span.votes-num'
+            },
+            info: {
+                type: 'text',
+                path: '.author'
+            },
         }
     }
 }
@@ -44,7 +48,7 @@ const microBlog = {
             },
             label: {
                 type: 'text',
-                path: 'td-03 i'
+                path: '.td-03 i'
             }
         }
     }

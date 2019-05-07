@@ -32,11 +32,16 @@ exports.segementFaultHandler = option => {
                 if (number < 10) {
                     space += ' '
                 }
+                let link = ''
+                let stars = ''
                 if (item.url) {
-                    let link = ' ----> ' + terminalLink('link', segementFault.baseUrl + item.url)
-                    return number + space + item.title + link
+                    link = ' ----> ' + terminalLink('link', segementFault.baseUrl + item.url)
                 }
-                return number + space + item.title
+                if (item.stars) {
+                    stars = ' ' + chalk.grey(item.stars)
+                }
+                const info = ' ' + chalk.green(item.info)
+                return number + space + item.title + stars + info + link
             })
             console.log(result.join('\n'))
         }

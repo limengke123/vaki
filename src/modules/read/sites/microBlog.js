@@ -24,17 +24,23 @@ exports.microBlogFaultHandler = option => {
             if (option.length) {
                 length = option.length
             }
+            data = data.filter(item => item.rank)
             if (!option.all) {
                 data = data.slice(0, length)
             }
             const result = data.map((item, index) => {
                 const link = terminalLink('link', microBlog.baseUrl + item.url)
                 const number = index + 1
+                const hot = item.hot
+                let label = item.label || ''
+                if (label) {
+                    label = chalk.white.bgRed(label)
+                }
                 let space = '. '
                 if (number < 10) {
                     space += ' '
                 }
-                return number + space + item.title + ' ---> ' + link
+                return number + space + item.title + ' ' + chalk.grey(hot) + ' ' + label + ' ---> ' + link
             })
             console.log(result.join('\n'))
         }
