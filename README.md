@@ -15,6 +15,7 @@ $ npm i vaki -g
 1. [x] todo-list
 2. [ ] stock
 3. [ ] tool
+4. [x] read
 
 ## Usage
 
@@ -62,4 +63,23 @@ $ vaki tool --open {urls}
 ```
 
 Also you can use `o` instead of `tool`.
+
+### read
+
+Reading some thing interesting in the terminal:
+
+1. [x] microBlog
+2. [x] segementFault
+
+```bash
+
+# read microBlog news
+$ vaki read -w
+
+# read segementFault
+$ vaki read -s
+
+```
+
+You can still use `r` instead of `read`. Add `-l {number}` to modify the length of showing content. 
 

@@ -15,6 +15,7 @@ $ npm i vaki -g
 1. [x] todo-list
 2. [ ] stock
 3. [ ] tool
+4. [x] read
 
 ## 用法
 
@@ -62,4 +63,23 @@ $ vaki tool --open {urls}
 ```
 
 同样的，你也可以用 `o` 代替 `tool`。
+
+### 阅读
+
+在终端阅读一些有意思的内容：
+
+1. [x] 微博
+2. [x] segementFault
+
+```bash
+
+# 阅读微博热搜
+$ vaki read -w
+
+# 阅读 segementFault
+$ vaki read -s
+
+```
+
+可以使用 `r` 来代替 `read`. 加上 `-l {number}` 去修改显示的内容长度。
 
