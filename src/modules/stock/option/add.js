@@ -33,7 +33,7 @@ exports.add = () => {
             } else {
                 mine.push(code)
                 config.set('mine', mine)
-                console.log(chalk.green(`成功添加了${name} / ${code} 到自选了`))
+                console.log(chalk.blue(`成功添加了${name} / ${code} 到自选了`))
             }
         }
     }).catch(err => {
