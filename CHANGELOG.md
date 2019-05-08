@@ -1,3 +1,12 @@
+## [0.5.5](https://github.com/limengke123/van/compare/v0.5.4...v0.5.5) (2019-05-08)
+
+
+### Bug Fixes
+
+* 修复inquirer包的引入问题，导致真正发版找不到该包 ([e276585](https://github.com/limengke123/van/commit/e276585))
+
+
+
 ## [0.5.4](https://github.com/limengke123/van/compare/v0.5.3...v0.5.4) (2019-05-08)
 
 
