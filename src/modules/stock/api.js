@@ -47,11 +47,11 @@ const getStockByCode = code => {
             ] = body.split(',')
             return {
                 name,
-                todayOpenPrice,
-                yesterdayClosingPrice,
-                currentPrice,
-                highestPrice,
-                lowestPrice,
+                todayOpenPrice: +todayOpenPrice,
+                yesterdayClosingPrice: +yesterdayClosingPrice,
+                currentPrice: +currentPrice,
+                highestPrice: +highestPrice,
+                lowestPrice: +lowestPrice,
                 code
             }
         })
