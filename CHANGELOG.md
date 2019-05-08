@@ -1,3 +1,12 @@
+## [0.5.7](https://github.com/limengke123/van/compare/v0.5.6...v0.5.7) (2019-05-08)
+
+
+### Bug Fixes
+
+* **main:** 首页todo长度问题导致首次进入报错 ([df7ff49](https://github.com/limengke123/van/commit/df7ff49))
+
+
+
 ## [0.5.6](https://github.com/limengke123/van/compare/v0.5.5...v0.5.6) (2019-05-08)
 
 
