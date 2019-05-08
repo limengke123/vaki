@@ -7,11 +7,14 @@ const mainConfConfig = new ConfigStore(mainConstant.MAIN_CONF)
 const todoConfig = new ConfigStore(todoConstant.TODO_DATA)
 
 let target = mainConfConfig.get(mainConstant.MAIN_CONF_TARGET)
-const todoList = todoConfig.get(todoConstant.TODO_DATA_LIST)
+let todoList = todoConfig.get(todoConstant.TODO_DATA_LIST)
 
 exports.target = () => {
     console.log(' ')
     console.log(Common.getTitle('target'))
+    if (!todoList) {
+        todoList = []
+    }
     if (todoList.length) {
         target = parseInt(target)
         let result = todoList.filter(item => !item.isComplete)
