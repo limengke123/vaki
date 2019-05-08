@@ -9,7 +9,7 @@
     "version": "npm run changelog && git add CHANGELOG.md",
     "lint": "eslint --fix src/",
     "preversion": "npm run changelog && git add CHANGELOG.md",
-    "postversion": "git push && git push --tags && npm publish"
+    "postversion": "npm publish && git push && git push --tags"
   },
   "repository": {
     "type": "git",
