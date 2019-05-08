@@ -1,3 +1,14 @@
+## [0.5.3](https://github.com/limengke123/van/compare/v0.5.2...v0.5.3) (2019-05-08)
+
+
+### Features
+
+* **stock:** 增加股票添加自选功能 ([167ab4a](https://github.com/limengke123/van/commit/167ab4a))
+* **stock:** 增加自选股票的查询功能 ([5840ae1](https://github.com/limengke123/van/commit/5840ae1))
+* **todo:** 优化增加待办项的交互逻辑 ([7bafeec](https://github.com/limengke123/van/commit/7bafeec))
+
+
+
 ## [0.5.2](https://github.com/limengke123/van/compare/v0.5.1...v0.5.2) (2019-05-07)
 
 
