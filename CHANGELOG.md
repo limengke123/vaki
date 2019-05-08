@@ -1,3 +1,13 @@
+## [0.5.4](https://github.com/limengke123/van/compare/v0.5.3...v0.5.4) (2019-05-08)
+
+
+### Features
+
+* **main:** 加入版本校验功能，提醒升级 ([8bec173](https://github.com/limengke123/van/commit/8bec173))
+* **stock:** 修改自选股票样式展示 ([e33242e](https://github.com/limengke123/van/commit/e33242e))
+
+
+
 ## [0.5.3](https://github.com/limengke123/van/compare/v0.5.2...v0.5.3) (2019-05-08)
 
 
