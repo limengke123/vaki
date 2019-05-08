@@ -34,24 +34,31 @@ const getStockByCode = code => {
     return get(url, {
         encoding: 'gbk'
     }).then(res => {
-        const body = res.split('\"')[1]
-        const [
-            name,
-            todayOpenPrice,
-            yesterdayClosingPrice,
-            currentPrice,
-            highestPrice,
-            lowestPrice
-        ] = body.split(',')
-        return {
-            name,
-            todayOpenPrice,
-            yesterdayClosingPrice,
-            currentPrice,
-            highestPrice,
-            lowestPrice,
-            code
+        const stockInfo = res.split('\n').filter(item => item)
+        const result = stockInfo.map(stock => {
+            const body = stock.split('\"')[1]
+            const [
+                name,
+                todayOpenPrice,
+                yesterdayClosingPrice,
+                currentPrice,
+                highestPrice,
+                lowestPrice
+            ] = body.split(',')
+            return {
+                name,
+                todayOpenPrice,
+                yesterdayClosingPrice,
+                currentPrice,
+                highestPrice,
+                lowestPrice,
+                code
+            }
+        })
+        if (result.length === 1) {
+            return result[0]
         }
+        return result
     })
 }
 
