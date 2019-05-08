@@ -12,25 +12,15 @@
 const ConfigStore = require('configstore')
 const figlet = require('figlet')
 const clear = require('clear')
-const { Helper, error, Log } = require('../util')
-const { todoConstant } = require('../constant')
+const { Helper, error, Log } = require('../../util')
+const { todoConstant } = require('../../constant')
+const { add } = require('./option/add')
 
 const config = new ConfigStore(todoConstant.TODO_DATA, {[todoConstant.TODO_DATA_LIST]: []})
 
-const todo = (option) => {
+const index = (option) => {
     if (option.add) {
-        try {
-            let todoList = config.get(todoConstant.TODO_DATA_LIST)
-            const arr = option.add.map(item => ({
-                text: item,
-                isComplete: false,
-            }))
-            todoList = todoList.concat(...arr)
-            config.set(todoConstant.TODO_DATA_LIST, todoList)
-            console.log('add success')
-        } catch (e) {
-            error(e.message)
-        }
+        add(option)
     }
     if (option.delete) {
         try {
@@ -111,12 +101,12 @@ exports.todoInstall = program => {
     program
         .command(todoConstant.TODO_COMMAND_NAME)
         .alias('t')
-        .option('-a, --add <items>', 'add a todo-item', Helper.getArr)
+        .option('-a, --add [items]', 'add a todo-item', Helper.getArr)
         .option('-l, --list', 'list out today todo-list')
         .option('-d --delete <n>', 'delete a todo-item', parseInt)
         .option('-c, --complete <n>', 'complete a todo-item', parseInt)
         .option('-p, --path', 'show the data file path')
         .option('-f, --filter [isComplete]', 'filter your todo-item by whether is completed')
         .description('a todo-list app!')
-        .action(todo)
+        .action(index)
 }
