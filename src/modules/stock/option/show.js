@@ -1,7 +1,13 @@
 const ConfigStore = require('configstore')
 const chalk = require('chalk')
+const ora = require('ora')
 const { stockConstant } = require('../../../constant')
 const { getStockByCode } = require('../api')
+
+const spinner = ora({
+    spinner: 'dots',
+    text: chalk.yellow('自选股票数据正在拼命加载中...')
+})
 
 const config = new ConfigStore(stockConstant.STOCK_CONF, {mine: []})
 
@@ -11,8 +17,10 @@ exports.show = option => {
         return console.log('you haven\'t add any stock code yet')
     }
     const codes = mine.join(',')
+    spinner.start()
     getStockByCode(codes)
         .then(res => {
+            spinner.stop()
             if (!Array.isArray(res)) {
                 res = [res]
             }
