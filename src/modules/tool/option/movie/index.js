@@ -1,9 +1,9 @@
-const { Url } = require('url')
+const { URL } = require('url')
 const inquirer = require('inquirer')
 const ora = require('ora')
 const chalk = require('chalk')
 const Araneida = require('araneida')
-const { Tool, error } = require('../../../../util')
+const { Tool, error, success } = require('../../../../util')
 const { dytt } = require('./spider.config')
 
 const spinnerFactory = (text = '电影天堂数据正在拼命加载中...') => ora({
@@ -45,7 +45,7 @@ exports.movie = option => {
         }
         return inquirer.prompt({
             type: 'list',
-            name: 'movieName',
+            name: 'movie',
             message: 'select a movie list below:',
             choices: data.map(item => ({
                 name: item.title,
@@ -53,10 +53,34 @@ exports.movie = option => {
             }))
         })
     }).then(answer => {
-        const { movieName } = answer
-        const { url } = movieName
-        console.log(dytt.url)
-        const link = new Url(dytt.url)
+        const { movie } = answer
+        const { url } = movie
+        const link = (new URL(dytt.url)).origin + url
+        const spinner = spinnerFactory('下载链接正在拼命加载中...')
+        return new Promise((resolve, reject) => {
+            spinner.start()
+            const spider = new Araneida({
+                links: {
+                    url: link,
+                    rules: {
+                        rule: {
+                            ftpLink: {
+                                type: 'text',
+                                path: '#Zoom > span > table > tbody > tr > td > a'
+                            }
+                        }
+                    }
+                },
+                done: data => {
+                    spinner.stop()
+                    resolve(data)
+                },
+                encode: 'gbk'
+            })
+            spider.start()
+        })
+    }).then(data => {
+        success(data.ftpLink)
     }).catch(err => {
         error(err.message)
     })

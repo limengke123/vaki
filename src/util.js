@@ -19,9 +19,11 @@ const chalkTag = msg => chalk.bgBlackBright.white.dim(` ${msg} `)
 const Log = {
     error(message, tag) {
         log(format(chalk.bgRed.black(' ERROR ') +
-            (tag ? chalkTag(tag) : ''),
-        message)
-        )
+            (tag ? chalkTag(tag) : ''), message))
+    },
+    success (message, tag) {
+        log(format(chalk.bgGreen.black(' SUCCESS ') +
+            (tag ? chalkTag(tag) : ''), message))
     },
     green(message) {
         log(chalk.green(message))
@@ -92,6 +94,7 @@ const Tool = {
 
 module.exports = {
     error: Log.error,
+    success: Log.success,
     Log,
     Helper,
     Time,
