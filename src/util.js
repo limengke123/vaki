@@ -1,8 +1,12 @@
 const chalk = require('chalk')
+const iconv = require('iconv-lite')
 const padStart = String.prototype.padStart
 const log = console.log
 
 const format = (label, msg) => {
+    if (!msg) {
+        return ''
+    }
     return msg.split('\n').map((line, i) => {
         return i === 0
             ? `${label} ${line}`
@@ -14,7 +18,7 @@ const chalkTag = msg => chalk.bgBlackBright.white.dim(` ${msg} `)
 
 const Log = {
     error(message, tag) {
-        log(format(chalk.bgGreen.black(' ERROR ') +
+        log(format(chalk.bgRed.black(' ERROR ') +
             (tag ? chalkTag(tag) : ''),
         message)
         )
@@ -76,6 +80,13 @@ const Tool = {
         // http://xxx 、xxx.com字样 、http://xxx.net
         const reg = /^(https?:\/\/)?\w+\.[a-z0-9_.]+/g
         return reg.test(str)
+    },
+    getUriEncodeGBk (str) {
+        const buf = iconv.encode(str, 'gbk')
+        return Array.prototype.map.call(buf, (char) => {
+            const hex = char.toString(16)
+            return '%' + hex
+        }).join('')
     }
 }
 
