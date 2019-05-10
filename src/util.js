@@ -10,7 +10,7 @@ const format = (label, msg) => {
     return msg.split('\n').map((line, i) => {
         return i === 0
             ? `${label} ${line}`
-            : padStart(line, chalk.reset(label).length)
+            : padStart.call(line, chalk.reset(label).length)
     }).join('\n')
 }
 
