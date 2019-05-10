@@ -105,9 +105,9 @@
     any-observable "^0.3.0"
 
 "@types/node@*":
-  version "11.13.8"
-  resolved "https://registry.npmjs.org/@types/node/-/node-11.13.8.tgz#e5d71173c95533be9842b2c798978f095f912aab"
-  integrity sha512-szA3x/3miL90ZJxUCzx9haNbK5/zmPieGraZEe4WI+3srN0eGLiT22NXeMHmyhNEopn+IrxqMc7wdVwvPl8meg==
+  version "12.0.0"
+  resolved "https://registry.npmjs.org/@types/node/-/node-12.0.0.tgz#d11813b9c0ff8aaca29f04cbc12817f4c7d656e5"
+  integrity sha512-Jrb/x3HT4PTJp6a4avhmJCDEVrPdqLfl3e8GGMbpkGGdwAV5UGlIs4vVEfsHHfylZVOKZWpOqmqFH8CbfOZ6kg==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -192,9 +192,9 @@ any-observable@^0.3.0:
   integrity sha512-/FQM1EDkTsf63Ub2C6O7GuYFDsSXUwsaZDurV0np41ocwq0jthUAYCmhBX9f+KwlaCgIuWyr/4WlUQUBfKfZog==
 
 araneida@^1.0.3:
-  version "1.0.5"
-  resolved "https://registry.npmjs.org/araneida/-/araneida-1.0.5.tgz#d9ccf4c61901adc7b6130e9a7271f4b8672a1212"
-  integrity sha512-zIrEONoOuoK/YJHWILt7UzvcSbBErc90NStZ3LoydUEASJT1YTsZ9M6Z55LWYmE8MSgJo+W0vjYH2i22LgVnpQ==
+  version "1.0.6"
+  resolved "https://registry.npmjs.org/araneida/-/araneida-1.0.6.tgz#d94c32421cb06cf32413c81b286dcf9c1d680b3f"
+  integrity sha512-jN5J2AXMsH3H+OPQO+8OBOIeO4BIrw5TKIAjBj+xcg2X3hf9xfnu/chSFZ1/s0okJMoNEMiU+2rSWpJ8wkJTKA==
   dependencies:
     chalk "^2.4.1"
     cheerio "^1.0.0-rc.2"
@@ -3153,8 +3153,8 @@ rxjs@^6.3.3, rxjs@^6.4.0:
 
 safe-buffer@^5.0.1, safe-buffer@^5.1.2, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.2"
-  resolved "http://registry.npm.souche-inc.com/safe-buffer/download/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
-  integrity sha1-mR7GnSluAxN0fVm9/St0XDX4go0=
+  resolved "https://registry.npmjs.org/safe-buffer/-/safe-buffer-5.1.2.tgz#991ec69d296e0313747d59bdfd2b745c35f8828d"
+  integrity sha512-Gd2UZBJDkXlY7GbJxfsE8/nvKkUEU1G38c1siN6QP6a9PT9MmHB8GnpscSmMJSoF8LOIrt8ud/wPtojys4G6+g==
 
 safe-regex@^1.1.0:
   version "1.1.0"
