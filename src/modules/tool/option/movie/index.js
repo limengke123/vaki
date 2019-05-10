@@ -1,3 +1,4 @@
+const { Url } = require('url')
 const inquirer = require('inquirer')
 const ora = require('ora')
 const chalk = require('chalk')
@@ -18,10 +19,13 @@ exports.movie = option => {
     }).then(answer => {
         return new Promise((resolve, reject) => {
             const { names } = answer
-            if (names.length < 2) {
-                return reject('输入的关键词必须大于1，否则电影天堂不能搜索')
-            }
             const encodeUrl = Tool.getUriEncodeGBk(names)
+            if (encodeUrl.length <= 6) {
+                return reject(new Error(
+                    '输入的关键词字节长度必须大于2，否则电影天堂不能搜索,' +
+                    '一个中文2个字节，一个英文1个字节'
+                ))
+            }
             const url = dytt.url + encodeUrl
             const spinner = spinnerFactory()
             spinner.start()
@@ -36,6 +40,9 @@ exports.movie = option => {
             spider.start()
         })
     }).then(data => {
+        if (!data.length) {
+            throw new Error('没有搜索到相关电影，换一个关键词试试？')
+        }
         return inquirer.prompt({
             type: 'list',
             name: 'movieName',
@@ -46,8 +53,11 @@ exports.movie = option => {
             }))
         })
     }).then(answer => {
-        console.log(answer)
+        const { movieName } = answer
+        const { url } = movieName
+        console.log(dytt.url)
+        const link = new Url(dytt.url)
     }).catch(err => {
-        error(err)
+        error(err.message)
     })
 }
