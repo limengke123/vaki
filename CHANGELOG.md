@@ -1,3 +1,22 @@
+# [0.6.0](https://github.com/limengke123/van/compare/v0.5.7...v0.6.0) (2019-05-10)
+
+
+### Bug Fixes
+
+* **util:** 修复error函数传入为空报错，error背景色修改为红色 ([ef12e26](https://github.com/limengke123/van/commit/ef12e26))
+* **util:** 修复error函数传入多行文本报错 ([cc71fa0](https://github.com/limengke123/van/commit/cc71fa0))
+
+
+### Features
+
+* **movie:** 支持查询电影列表，并获取电影下载链接 ([86b65be](https://github.com/limengke123/van/commit/86b65be))
+* **movie:** 新增电影天堂搜索的时候长度的限制，超过3个字节才能搜索 ([980a068](https://github.com/limengke123/van/commit/980a068))
+* **stock:** 增加搜索股票时候的spinner ([ed802e2](https://github.com/limengke123/van/commit/ed802e2))
+* **tool:** 支持电影天堂的搜索电影的功能 ([74f5987](https://github.com/limengke123/van/commit/74f5987))
+* **tool/movie:** 更新araneida版本 ([b09dc4d](https://github.com/limengke123/van/commit/b09dc4d))
+
+
+
 ## [0.5.7](https://github.com/limengke123/van/compare/v0.5.6...v0.5.7) (2019-05-08)
 
 
