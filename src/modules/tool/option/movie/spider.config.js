@@ -1,5 +1,5 @@
 const dytt = {
-    url: 'http://s.ygdy8.com/plus/so.php?typeid=1&keyword=',
+    url: 'http://s.ygdy8.com/plus/so.php?kwtype=0&searchtype=title&keyword=',
     rules: {
         list: '.co_content8 ul table',
         rule: {
