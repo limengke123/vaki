@@ -80,7 +80,17 @@ exports.movie = option => {
             spider.start()
         })
     }).then(data => {
-        success(data.ftpLink)
+        success('以下为下载链接:')
+        if (Array.isArray(data.ftpLink)) {
+            data.ftpLink.forEach((link, index, array) => {
+                const number = (index + 1) + '. '
+                const suffix = index === array.length ? '' : '\n';
+                const result = number + link + suffix
+                console.log(result)
+            })
+        } else {
+            console.log(data.ftpLink)
+        }
     }).catch(err => {
         error(err.message)
     })
