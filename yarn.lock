@@ -192,9 +192,9 @@ any-observable@^0.3.0:
   integrity sha512-/FQM1EDkTsf63Ub2C6O7GuYFDsSXUwsaZDurV0np41ocwq0jthUAYCmhBX9f+KwlaCgIuWyr/4WlUQUBfKfZog==
 
 araneida@^1.0.3:
-  version "1.0.6"
-  resolved "https://registry.npmjs.org/araneida/-/araneida-1.0.6.tgz#d94c32421cb06cf32413c81b286dcf9c1d680b3f"
-  integrity sha512-jN5J2AXMsH3H+OPQO+8OBOIeO4BIrw5TKIAjBj+xcg2X3hf9xfnu/chSFZ1/s0okJMoNEMiU+2rSWpJ8wkJTKA==
+  version "1.1.2"
+  resolved "https://registry.npmjs.org/araneida/-/araneida-1.1.2.tgz#d8ebddbaeaec99db6a386f30bb4bdc790bb01e50"
+  integrity sha512-RSNk3c8UD6izKa59sK8QRMTo/IIZFGxuAaSsuZPrudy8kVVrJpzWcA4yT6kHmQWvxmJTlm0cvpgLJxreXPdFwA==
   dependencies:
     chalk "^2.4.1"
     cheerio "^1.0.0-rc.2"
@@ -576,9 +576,9 @@ color-name@1.1.3:
   integrity sha1-p9BVi9icQveV3UIyj3QIMcpTvCU=
 
 combined-stream@^1.0.6, combined-stream@~1.0.6:
-  version "1.0.7"
-  resolved "https://registry.npmjs.org/combined-stream/-/combined-stream-1.0.7.tgz#2d1d24317afb8abe95d6d2c0b07b57813539d828"
-  integrity sha512-brWl9y6vOB1xYPZcpZde3N9zDByXTosAeMDo4p1wzo6UMOX4vumB+TP1RZ76sfE6Md68Q0NJSrE/gbezd4Ul+w==
+  version "1.0.8"
+  resolved "https://registry.npmjs.org/combined-stream/-/combined-stream-1.0.8.tgz#c3d45a8b34fd730631a110a8a2520682b31d5a7f"
+  integrity sha512-FQN4MRfuJeHf7cBbBMJFXhKSDq+2kAArBlmRBvcvFE5BB1HZKXtSFASDhdlz9zOYwxh8lDdnvmMOe/+5cdoEdg==
   dependencies:
     delayed-stream "~1.0.0"
 
