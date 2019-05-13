@@ -1,5 +1,6 @@
 const chalk = require('chalk')
 const iconv = require('iconv-lite')
+const ora = require('ora')
 const padStart = String.prototype.padStart
 const log = console.log
 
@@ -83,12 +84,18 @@ const Tool = {
         const reg = /^(https?:\/\/)?\w+\.[a-z0-9_.]+/g
         return reg.test(str)
     },
-    getUriEncodeGBk (str) {
-        const buf = iconv.encode(str, 'gbk')
+    getUriEncodeGBk (str, encode = 'gbk') {
+        const buf = iconv.encode(str, encode)
         return Array.prototype.map.call(buf, (char) => {
             const hex = char.toString(16)
             return '%' + hex
         }).join('')
+    },
+    spinnerFactory (text = '电影天堂数据正在拼命加载中...') {
+        return ora({
+            spinner: 'dots',
+            text: chalk.yellow(text)
+        })
     }
 }
 

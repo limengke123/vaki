@@ -1,15 +1,10 @@
 const { URL } = require('url')
 const inquirer = require('inquirer')
-const ora = require('ora')
-const chalk = require('chalk')
 const Araneida = require('araneida')
 const { Tool, error, success } = require('../../../../util')
-const { dytt } = require('./spider.config')
+const { dytt } = require('../../spider.config')
 
-const spinnerFactory = (text = '电影天堂数据正在拼命加载中...') => ora({
-    spinner: 'dots',
-    text: chalk.yellow(text)
-})
+const { spinnerFactory } = Tool
 
 exports.movie = option => {
     inquirer.prompt({
