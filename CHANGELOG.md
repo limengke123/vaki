@@ -1,3 +1,13 @@
+## [0.6.1](https://github.com/limengke123/van/compare/v0.6.0...v0.6.1) (2019-05-13)
+
+
+### Features
+
+* **movie:** 优化搜索列表为电视剧时显示方式 ([1a10866](https://github.com/limengke123/van/commit/1a10866))
+* **movie:** 更新电影天堂搜索链接地址，支持电影、电视剧等搜索 ([2776ee3](https://github.com/limengke123/van/commit/2776ee3))
+
+
+
 # [0.6.0](https://github.com/limengke123/van/compare/v0.5.7...v0.6.0) (2019-05-10)
 
 
