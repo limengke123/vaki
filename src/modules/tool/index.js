@@ -7,6 +7,7 @@ const { toolConstant } = require('../../constant')
 const defaultConfig = require('./defaultConfig')
 const { open } = require('./option/open')
 const { movie } = require('./option/movie/index')
+const { douban } = require('./option/douban/index')
 
 const config = new ConfigStore(toolConstant.TOOL_CONF, defaultConfig)
 
@@ -18,6 +19,10 @@ const tool = option => {
 
     if (option.movie) {
         movie(option)
+    }
+
+    if (option.douban) {
+        douban(option)
     }
 
     if (option.edit) {
@@ -44,6 +49,7 @@ exports.toolInstall = program => {
         .alias('o')
         .option('-o, --open <urls>', 'open the urls in browser', Helper.getArr)
         .option('-s, --search <any>', 'add search condition in baidu or some other site')
+        .option('-d --douban', 'search any word on the douban')
         .option('-m --movie', 'search movie on the internet')
         .option('-e, --edit', 'edit your config file')
         .description('some useful third part tools')
