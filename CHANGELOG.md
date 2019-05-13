@@ -1,3 +1,12 @@
+## [0.6.2](https://github.com/limengke123/van/compare/v0.6.1...v0.6.2) (2019-05-13)
+
+
+### Features
+
+* **stock:** 股票显示列表加上code ([46bd326](https://github.com/limengke123/van/commit/46bd326))
+
+
+
 ## [0.6.1](https://github.com/limengke123/van/compare/v0.6.0...v0.6.1) (2019-05-13)
 
 
