@@ -48,8 +48,9 @@ exports.show = option => {
                 currentPrice = (currentPrice.toFixed(2)).padEnd(9)
                 diff = chalk[color]((prefix + diff.toFixed(2)).padEnd(8))
                 rate = chalk[color]((prefix + rate).padEnd(8))
+                code = chalk.grey(code.padEnd(10))
                 const number = ((index + 1) + '.').padEnd(3)
-                const result = number + currentPrice + diff + rate + name.padEnd(5)
+                const result = number + currentPrice + diff + rate + code + name
                 console.log(result)
             })
         }).catch(err => {

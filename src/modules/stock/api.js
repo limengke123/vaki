@@ -35,7 +35,7 @@ const getStockByCode = code => {
         encoding: 'gbk'
     }).then(res => {
         const stockInfo = res.split('\n').filter(item => item)
-        const result = stockInfo.map(stock => {
+        const result = stockInfo.map((stock, index) => {
             const body = stock.split('\"')[1]
             const [
                 name,
@@ -52,7 +52,7 @@ const getStockByCode = code => {
                 currentPrice: +currentPrice,
                 highestPrice: +highestPrice,
                 lowestPrice: +lowestPrice,
-                code
+                code: code.split(',')[index]
             }
         })
         if (result.length === 1) {
