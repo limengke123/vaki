@@ -3,7 +3,7 @@ const ConfigStore = require('configstore')
 const chalk = require('chalk')
 const { dingdingConstant } = require('../../../constant')
 
-const config = new ConfigStore(dingdingConstant.DINGDINNG_CONF, {mine: []})
+const config = new ConfigStore(dingdingConstant.DINGDINNG_CONF, {webhooks: []})
 
 exports.add = () => {
     inquire.prompt({
@@ -22,12 +22,12 @@ exports.add = () => {
     }).then(([info, answer]) => {
         if (answer.check) {
             const { webhook }= info
-            const mine = config.get('mine')
-            if (mine.indexOf(webhook) > -1) {
+            const webhooks = config.get('webhooks')
+            if (webhooks.indexOf(webhook) > -1) {
                 console.log(chalk.red(`已经添加过${webhook}了, 无须重复添加`))
             } else {
-                mine.push(webhook)
-                config.set('mine', mine)
+                webhooks.push(webhook)
+                config.set('webhooks', webhooks)
                 console.log(chalk.blue(`成功添加了${webhook}到列表了`))
             }
         }
