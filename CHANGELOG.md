@@ -1,3 +1,21 @@
+# [0.7.0](https://github.com/limengke123/van/compare/v0.6.2...v0.7.0) (2019-05-16)
+
+
+### Bug Fixes
+
+* **dingding:** 修复与股票键值冲突 ([af26468](https://github.com/limengke123/van/commit/af26468))
+
+
+### Features
+
+* **dingding:** 新增钉钉webhook ([c378e1b](https://github.com/limengke123/van/commit/c378e1b))
+* **douban:** 新增豆瓣搜索功能 ([269db07](https://github.com/limengke123/van/commit/269db07))
+* **douban:** 豆瓣详情页 ([57ca142](https://github.com/limengke123/van/commit/57ca142))
+* **stock:** 增加给钉钉发送消息功能 ([abe30f4](https://github.com/limengke123/van/commit/abe30f4))
+* **stock:** 根据涨跌幅度显示不同颜色（未完成） ([ffa0ff4](https://github.com/limengke123/van/commit/ffa0ff4))
+
+
+
 ## [0.6.2](https://github.com/limengke123/van/compare/v0.6.1...v0.6.2) (2019-05-13)
 
 

@@ -1,6 +1,6 @@
 {
   "name": "vaki",
-  "version": "0.6.2",
+  "version": "0.7.0",
   "description": "a simple terminal tool",
   "bin": "src/index.js",
   "scripts": {
