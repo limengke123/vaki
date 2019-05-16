@@ -6,6 +6,7 @@ const { noOptionHandle, mainInstall, mainHandle } = require('./modules/main/inde
 const { errorHandle } = require('./error')
 const { todoInstall } = require('./modules/todo/index')
 const { stockInstall } = require('./modules/stock/index')
+const { dingdingInstall } = require('./modules/dingding/index')
 const { toolInstall } = require('./modules/tool/index')
 const { readingInstall } = require('./modules/read/index')
 
@@ -20,6 +21,7 @@ mainInstall(program)
 // install sub-command
 todoInstall(program)
 stockInstall(program)
+dingdingInstall(program)
 toolInstall(program)
 readingInstall(program)
 

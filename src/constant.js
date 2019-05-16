@@ -69,6 +69,13 @@ const STOCK_COMMAND_NAME = 'stock'
 const STOCK_CONF = getReadKey(CONF)
 ///------------------- read -------------------///
 
+///------------------- dingding -------------------///
+    ///----- dingding_name -----///
+    const DINGDING_COMMAND_NAME = 'dingding'
+
+    ///----- dingding_conf -----///
+const DINGDINNG_CONF = getReadKey(CONF)
+///------------------- read -------------------///
 
 module.exports = {
     mainConstant: {
@@ -98,5 +105,9 @@ module.exports = {
     stockConstant: {
         STOCK_COMMAND_NAME,
         STOCK_CONF
+    },
+    dingdingConstant: {
+        DINGDING_COMMAND_NAME,
+        DINGDINNG_CONF
     }
 }
