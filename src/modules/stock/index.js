@@ -4,14 +4,20 @@ const { stockConstant } = require('../../constant')
 const { Log } = require('../../util')
 const { add } = require('./option/add')
 const { show } = require('./option/show')
+const { message } = require('./option/message')
 
 const stock = (option) => {
     if (option.add) {
-        add(option);
+        add(option)
     }
     if (option.show) {
         show(option)
     }
+
+    if (option.message) {
+        message(option)
+    }
+
     if(option.parent.rawArgs.length === 3) {
         clear()
         Log.green(figlet.textSync(stockConstant.STOCK_COMMAND_NAME, {
@@ -27,6 +33,7 @@ exports.stockInstall = program => {
         .command(stockConstant.STOCK_COMMAND_NAME)
         .option('-a --add', 'add stock code into list')
         .option('-s --show', 'show all the stock you had added')
+        .option('-m --message', 'send all the stock you had added to dingding')
         .alias('s')
         .description('a stock tool!')
         .action(stock)
