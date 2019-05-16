@@ -62,12 +62,16 @@ const doubanMovieDetail = {
             },
             screenwriter: {
                 type: 'text',
-                path: '#info > span:nth-child(3) > span.attrs > a'
+                path: '#info > span:nth-child(3) > span.attrs'
             },
             actor: {
                 type: 'text',
-                path: '#info > span.actor > span.attrs > a'
+                path: '#info > span.actor > span.attrs'
             },
+            genre: {
+                type: 'text',
+                path: '#info > span[property="v:genre"]'
+            }
         }
     }
 }
