@@ -9,6 +9,20 @@ const spinner = ora({
     text: chalk.yellow('自选股票数据正在拼命加载中...')
 })
 
+const getColor = rate => {
+    let color = 'grey'
+    if (rate > 0) {
+        // 涨了
+        switch (true) {
+            case rate > 5:
+                break;
+        }
+    } else if (rate < 0) {
+        // 跌了
+    }
+    return color
+}
+
 const config = new ConfigStore(stockConstant.STOCK_CONF, {mine: []})
 
 exports.show = option => {
@@ -36,7 +50,9 @@ exports.show = option => {
                 } = stock
                 // 和昨日收盘价去比较
                 let diff = currentPrice - yesterdayClosingPrice
-                let rate = ((diff / yesterdayClosingPrice) * 100).toFixed(2) + '%'
+                let rate = ((diff / yesterdayClosingPrice) * 100).toFixed(2)
+                const showColor = getColor(rate)
+                rate = rate + '%'
                 let color = 'grey'
                 let prefix = ''
                 if (diff < 0) {
