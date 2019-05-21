@@ -6,7 +6,7 @@ const {
     Time,
     Common,
     Tool
-} = require('./util')
+} = require('./common')
 
 const { Markdown } = require('./markdown')
 
