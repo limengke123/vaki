@@ -1,6 +1,6 @@
-const chalk = require('chalk/types')
-const iconv = require('iconv-lite/lib/index')
-const ora = require('ora/index')
+const chalk = require('chalk')
+const iconv = require('iconv-lite')
+const ora = require('ora')
 const padStart = String.prototype.padStart
 const log = console.log
 
