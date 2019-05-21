@@ -1,3 +1,19 @@
+## [0.7.1](https://github.com/limengke123/van/compare/v0.7.0...v0.7.1) (2019-05-21)
+
+
+### Bug Fixes
+
+* **util:** 修复路径引用错误 ([aa9cf0a](https://github.com/limengke123/van/commit/aa9cf0a))
+
+
+### Features
+
+* **dingding:** dingding加上移除webhooks选项 ([5def20a](https://github.com/limengke123/van/commit/5def20a))
+* **stock:** 修改推送dingding的样式显示 ([a762780](https://github.com/limengke123/van/commit/a762780))
+* **util:** util加入markdown辅助函数 ([ab6fd3d](https://github.com/limengke123/van/commit/ab6fd3d))
+
+
+
 # [0.7.0](https://github.com/limengke123/van/compare/v0.6.2...v0.7.0) (2019-05-16)
 
 
