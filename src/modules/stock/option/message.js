@@ -4,11 +4,14 @@ const chalk = require('chalk')
 const ora = require('ora')
 const { stockConstant, dingdingConstant } = require('../../../constant')
 const { getStockByCode } = require('../api')
+const { Markdown } = require('../../../util/index')
 
 const spinner = ora({
     spinner: 'dots',
     text: chalk.yellow('自选股票数据正在拼命加载中...')
 })
+
+const md = new Markdown()
 
 const stockConfig = new ConfigStore(stockConstant.STOCK_CONF, {mine: []})
 const dingdingConfig = new ConfigStore(dingdingConstant.DINGDINNG_CONF, {webhooks: []})
@@ -19,12 +22,13 @@ const send = list => {
         return console.log('you haven\'t add any webhook yet')
     }
 
-    const result = list.join('  \n')
+    // const result = list.join('  \n')
     webhooks.forEach(url => {
         axios.post(url, {
-            msgtype: 'text',
-            text: {
-                content: result
+            msgtype: 'markdown',
+            markdown: {
+                title: '哦嚯，完蛋',
+                text: list
             }
         })
     })
@@ -45,6 +49,7 @@ exports.message = option => {
             }
 
             const list = []
+            const rawData = []
             res.forEach((stock, index) => {
                 let {
                     name,
@@ -60,8 +65,12 @@ exports.message = option => {
                 let rate = ((diff / yesterdayClosingPrice) * 100).toFixed(2)
                 rate = rate + '%'
                 let prefix = ''
+                let color = '#666'
                 if (diff > 0) {
                     prefix = '+'
+                    color = '#f54545'
+                } else if (diff < 0) {
+                    color = '#27F526'
                 }
                 currentPrice = (currentPrice.toFixed(2)).padEnd(9)
                 diff = (prefix + diff.toFixed(2)).padEnd(8)
@@ -70,8 +79,27 @@ exports.message = option => {
                 const number = ((index + 1) + '.').padEnd(3)
                 const result = number + currentPrice + diff + rate + code + name
                 list.push(result)
+                rawData.push({
+                    name,
+                    currentPrice,
+                    diff,
+                    rate,
+                    code,
+                    color,
+                    number
+                })
             })
-            send(list)
+            rawData.forEach(item => {
+                const { number, name, currentPrice, diff, rate, code, color} = item
+                md.addText(number, '#49634d')
+                    .addText(currentPrice, '#3A4E52')
+                    .addText(diff, color)
+                    .addText(rate, color)
+                    .addText(code, '#797a80')
+                    .addBoldText(name)
+                    .addRawText('\n')
+            })
+            send(md.getText())
         }).catch(err => {
             console.log(chalk.red(err.message))
     })
