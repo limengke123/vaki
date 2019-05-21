@@ -12,7 +12,7 @@
 const ConfigStore = require('configstore')
 const figlet = require('figlet')
 const clear = require('clear')
-const { Helper, error, Log } = require('../../util')
+const { Helper, error, Log } = require('../../util/index')
 const { todoConstant } = require('../../constant')
 const { add } = require('./option/add')
 

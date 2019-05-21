@@ -1,4 +1,4 @@
-const { Time } = require('./util')
+const { Time } = require('./util/index')
 
 const NAME_SPACE = 'VAKI_'
 const CONF = 'CONF'

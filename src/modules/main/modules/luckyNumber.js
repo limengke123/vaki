@@ -1,7 +1,7 @@
 const chalk = require('chalk')
 const ConfigStore = require('configstore')
 const { mainConstant } = require('../../../constant')
-const { Time, Common } = require('../../../util')
+const { Time, Common } = require('../../../util/index')
 
 const config = new ConfigStore(mainConstant.MAIN_DATA)
 

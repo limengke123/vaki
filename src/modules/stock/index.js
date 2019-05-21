@@ -1,7 +1,7 @@
 const clear = require('clear')
 const figlet = require('figlet')
 const { stockConstant } = require('../../constant')
-const { Log } = require('../../util')
+const { Log } = require('../../util/index')
 const { add } = require('./option/add')
 const { show } = require('./option/show')
 const { message } = require('./option/message')

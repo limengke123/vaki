@@ -1,6 +1,6 @@
 const semver = require('semver')
 const chalk = require('chalk')
-const { error } = require('./util')
+const { error } = require('./util/index')
 const pkg = require('../package')
 
 exports.errorHandle = () => {

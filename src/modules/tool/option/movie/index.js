@@ -1,7 +1,7 @@
 const { URL } = require('url')
 const inquirer = require('inquirer')
 const Araneida = require('araneida')
-const { Tool, error, success } = require('../../../../util')
+const { Tool, error, success } = require('../../../../util/index')
 const { dytt } = require('../../spider.config')
 
 const { spinnerFactory } = Tool

@@ -1,6 +1,6 @@
 const opener = require('opener')
 const ConfigStore = require('configstore')
-const { Tool } = require('../../../util')
+const { Tool } = require('../../../util/index')
 const { toolConstant } = require('../../../constant')
 const defaultConfig = require('../defaultConfig')
 

@@ -1,4 +1,4 @@
-const { Common, Time } = require('../../../util')
+const { Common, Time } = require('../../../util/index')
 const pkg = require('../../../../package')
 const updateNotifier = require('update-notifier')
 

@@ -3,7 +3,7 @@ const inquirer = require('inquirer')
 const ora = require('ora')
 const chalk = require('chalk')
 const Araneida = require('araneida')
-const { Tool, error } = require('../../../../util')
+const { Tool, error } = require('../../../../util/index')
 const { douban, doubanMovieDetail } = require('../../spider.config')
 
 const { spinnerFactory } = Tool
