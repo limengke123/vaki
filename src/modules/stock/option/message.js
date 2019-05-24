@@ -70,7 +70,7 @@ exports.message = option => {
                     prefix = '+'
                     color = '#f54545'
                 } else if (diff < 0) {
-                    color = '#27F526'
+                    color = '#0f990f'
                 }
                 currentPrice = (currentPrice.toFixed(2)).padEnd(9)
                 diff = (prefix + diff.toFixed(2)).padEnd(8)
