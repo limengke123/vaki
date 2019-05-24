@@ -1,3 +1,12 @@
+## [0.7.2](https://github.com/limengke123/van/compare/v0.7.1...v0.7.2) (2019-05-24)
+
+
+### Features
+
+* **stock:** 修改推送dingding的绿色 ([581362c](https://github.com/limengke123/van/commit/581362c))
+
+
+
 ## [0.7.1](https://github.com/limengke123/van/compare/v0.7.0...v0.7.1) (2019-05-21)
 
 
