@@ -9,6 +9,7 @@ const defaultConfig = require('./defaultConfig')
 const { baseInfo } = require('./modules/baseInfo')
 const { luckyNumber } = require('./modules/luckyNumber')
 const { target } = require('./modules/target')
+const { history } = require('./modules/history')
 
 const config = new ConfigStore(mainConstant.MAIN_CONF, defaultConfig)
 
@@ -17,7 +18,7 @@ exports.mainInstall = program => {
         .option('-e, --edit', 'edit main command config file')
 }
 
-exports.noOptionHandle = () => {
+exports.noOptionHandle = async() => {
     clear()
     // 显示 logo
     Log.blue(figlet.textSync(pkg.name, {
@@ -30,6 +31,7 @@ exports.noOptionHandle = () => {
     if (config.get(mainConstant.MAIN_CONF_LUCKY_NUMBER)) {
         luckyNumber()
     }
+    await history()
     // 显示目标
     if (config.get(mainConstant.MAIN_CONF_TARGET)) {
         target()

@@ -8,6 +8,4 @@ exports.baseInfo = () => {
     if (notifier.update) {
         notifier.notify()
     }
-    console.log(Common.getTitle('base'))
-    console.log(Time.today)
 }
