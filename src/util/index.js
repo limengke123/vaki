@@ -10,6 +10,8 @@ const {
 
 const { Markdown } = require('./markdown')
 
+const { get } = require('./http')
+
 module.exports = {
     error,
     success,
@@ -18,5 +20,6 @@ module.exports = {
     Time,
     Common,
     Tool,
-    Markdown
+    Markdown,
+    get
 }
