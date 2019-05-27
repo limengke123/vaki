@@ -45,8 +45,15 @@ exports.douban = option => {
                 } = item
                 rateNumber = chalk.red(rateNumber + ' ')
                 rateMan = chalk.grey(rateMan + ' ')
+                const maxLength = 74
+                if (tag.length + title.length + subjectCast.length + rateMan.length + rateNumber.length > maxLength) {
+                    const leftLength = ~~((maxLength - tag.length - rateMan.length - rateNumber.length ) / 2)
+                    title = Tool.ellipsisWord(title, leftLength)
+                    subjectCast = Tool.ellipsisWord(subjectCast.replace(/\s/g, ''), leftLength) + ' '
+                } else {
+                    subjectCast = subjectCast.replace(/\s/g, '') + ' '
+                }
                 tag = tag + ' '
-                subjectCast = subjectCast.replace(/\s/g, '') + ' '
                 const name = tag + title + chalk.keyword('orange')(subjectCast) + rateMan + rateNumber
                 return {
                     name: name,

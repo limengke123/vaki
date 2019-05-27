@@ -96,6 +96,16 @@ const Tool = {
             spinner: 'dots',
             text: chalk.yellow(text)
         })
+    },
+    ellipsisWord (text, length = 5, replacement = '...') {
+        if (typeof text !== 'string') {
+            return text
+        }
+        if (text.length >= length) {
+            return text.slice(0, length) + replacement
+        } else {
+            return text
+        }
     }
 }
 
