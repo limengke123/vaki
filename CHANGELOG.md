@@ -1,3 +1,12 @@
+## [0.7.4](https://github.com/limengke123/van/compare/v0.7.3...v0.7.4) (2019-05-27)
+
+
+### Features
+
+* **douban:** 豆瓣模块加入显示长度限制，避免过长的文本导致翻页出现bug ([99574aa](https://github.com/limengke123/van/commit/99574aa))
+
+
+
 ## [0.7.3](https://github.com/limengke123/van/compare/v0.7.2...v0.7.3) (2019-05-27)
 
 
