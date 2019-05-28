@@ -1,3 +1,4 @@
+import commander = require('commander')
 const child_process = require('child_process')
 const clear = require('clear')
 const figlet = require('figlet')
@@ -10,7 +11,7 @@ const { microBlogFaultHandler } = require('./sites/microBlog')
 
 const config = new ConfigStore(readConstant.READ_CONF, defaultConfig)
 
-const reading = option => {
+const reading = (option: any) => {
 
     if (option.segementFault) {
         segementFaultHandler(option)
@@ -37,15 +38,17 @@ const reading = option => {
     }
 }
 
-exports.readingInstall = program => {
-    program
-        .command(readConstant.READ_COMMAND_NAME)
-        .alias('r')
-        .option('-s, --segementFault', 'get interesting things from segementFault.com')
-        .option('-w, --weibo', 'get hottest news from weibo')
-        .option('-e, --edit', 'edit your config file of read module')
-        .option('-l, --length <length>', 'show the list length')
-        .option('-a, --all', 'show all the data regardless the option of [length]')
-        .description('reading some thing interesting')
-        .action(reading)
+export = {
+    readingInstall: (program: commander.Command) => {
+        program
+            .command(readConstant.READ_COMMAND_NAME)
+            .alias('r')
+            .option('-s, --segementFault', 'get interesting things from segementFault.com')
+            .option('-w, --weibo', 'get hottest news from weibo')
+            .option('-e, --edit', 'edit your config file of read module')
+            .option('-l, --length <length>', 'show the list length')
+            .option('-a, --all', 'show all the data regardless the option of [length]')
+            .description('reading some thing interesting')
+            .action(reading)
+    }
 }

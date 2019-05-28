@@ -76,7 +76,7 @@ const doubanMovieDetail = {
     }
 }
 
-module.exports = {
+export = {
     dytt,
     douban,
     doubanMovieDetail

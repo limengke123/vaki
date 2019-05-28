@@ -1,17 +1,17 @@
 const { get } = require('../../util')
 
-const getStockByCode = code => {
+const getStockByCode = (code: string) => {
     if (!code) {
         return Promise.reject('没有传code过来')
     }
-    const baseUrl = 'http://hq.sinajs.cn/list='
-    const url = baseUrl + code
+    const baseUrl: string = 'http://hq.sinajs.cn/list='
+    const url: string = baseUrl + code
     return get(url, {
         encoding: 'gbk'
-    }).then(res => {
-        const stockInfo = res.split('\n').filter(item => item)
+    }).then((res: string) => {
+        const stockInfo: Array<string> = res.split('\n').filter(item => item)
         const result = stockInfo.map((stock, index) => {
-            const body = stock.split('\"')[1]
+            const body: string = stock.split('\"')[1]
             const [
                 name,
                 todayOpenPrice,

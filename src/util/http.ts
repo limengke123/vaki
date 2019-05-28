@@ -1,8 +1,12 @@
 const http = require('http')
-const iconv = require('iconv-lite')
+import iconv = require('iconv-lite')
 
-const get = (url, option = { encoding: 'utf8'}) => new Promise((resolve, reject) => {
-    http.get(url, res => {
+export interface getOption {
+    encoding: string
+}
+
+const get:(url: string, option: getOption) => Promise<any> = (url: string, option: getOption = { encoding: 'utf8'}) => new Promise((resolve, reject) => {
+    http.get(url, (res: { statusCode: number; resume?: any; pipe?: any; }) => {
         const { statusCode } = res
         let error
         if (statusCode !== 200) {
@@ -13,7 +17,7 @@ const get = (url, option = { encoding: 'utf8'}) => new Promise((resolve, reject)
             return res.resume()
         }
 
-        const converterStream = iconv.decodeStream(option.encoding);
+        const converterStream = iconv.decodeStream(option.encoding)
         res.pipe(converterStream)
         let rawData = ''
         converterStream.on('data', chunk => {
@@ -22,7 +26,7 @@ const get = (url, option = { encoding: 'utf8'}) => new Promise((resolve, reject)
         converterStream.on('end', () => {
             resolve(rawData)
         })
-    }).on('error', e => reject(e.message))
+    }).on('error', (e: { message: string; }) => reject(e.message))
 })
 
 module.exports = {

@@ -1,3 +1,4 @@
+import commander = require('commander')
 const child_process = require('child_process')
 const ConfigStore = require('configstore')
 const clear = require('clear')
@@ -11,7 +12,7 @@ const { douban } = require('./option/douban/index')
 
 const config = new ConfigStore(toolConstant.TOOL_CONF, defaultConfig)
 
-const tool = option => {
+const tool = (option: any) => {
 
     if (option.open) {
         open(option)
@@ -43,7 +44,7 @@ const tool = option => {
     }
 }
 
-exports.toolInstall = program => {
+exports.toolInstall = (program: commander.Command) => {
     program
         .command(toolConstant.TOOL_COMMAND_NAME)
         .alias('o')

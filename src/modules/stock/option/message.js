@@ -102,5 +102,5 @@ exports.message = option => {
             send(md.getText())
         }).catch(err => {
             console.log(chalk.red(err.message))
-    })
+        })
 }

@@ -18,6 +18,7 @@ exports.add = () => {
                 message: `are you sure add ${res.webhook}`,
                 name: 'check'
             })
+
         ])
     }).then(([info, answer]) => {
         if (answer.check) {

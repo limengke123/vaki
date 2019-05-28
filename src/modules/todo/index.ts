@@ -1,14 +1,4 @@
-/**
- * @file todo-app
- * @example add a todo-item
- * van todo -a {todo-name}
- * @example list todo-list
- * van todo -l
- * @example delete a todo-item
- * van todo -d {index | key}
- * @example complete a todo-item
- * van todo -c {index | key}
- * */
+import commander = require('commander')
 const ConfigStore = require('configstore')
 const figlet = require('figlet')
 const clear = require('clear')
@@ -18,7 +8,7 @@ const { add } = require('./option/add')
 
 const config = new ConfigStore(todoConstant.TODO_DATA, {[todoConstant.TODO_DATA_LIST]: []})
 
-const index = (option) => {
+const index = (option: any) => {
     if (option.add) {
         add(option)
     }
@@ -34,7 +24,7 @@ const index = (option) => {
         }
     }
     if (option.list) {
-        const todoList = config.get(todoConstant.TODO_DATA_LIST)
+        const todoList: Array<any> = config.get(todoConstant.TODO_DATA_LIST)
         let result = todoList.map((item ,index) => {
             const showIndex = index + 1
             return {
@@ -63,7 +53,7 @@ const index = (option) => {
     }
     if (option.complete) {
         try {
-            let todoList = config.get(todoConstant.TODO_DATA_LIST)
+            let todoList: Array<any> = config.get(todoConstant.TODO_DATA_LIST)
             const indexArg = option.complete - 1
             if (indexArg > todoList.length) {
                 return error('没有这个todo-item')
@@ -97,7 +87,7 @@ const index = (option) => {
     }
 }
 
-exports.todoInstall = program => {
+exports.todoInstall = (program: commander.Command) => {
     program
         .command(todoConstant.TODO_COMMAND_NAME)
         .alias('t')

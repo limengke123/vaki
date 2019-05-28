@@ -63,3 +63,5 @@ typings/
 # editor
 .idea
 .vscode
+lib
+dist

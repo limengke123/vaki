@@ -13,7 +13,7 @@ const { readingInstall } = require('./modules/read/index')
 errorHandle()
 
 program.version(
-    chalk.underline.bold.greenBright('v' + pkg.version),
+    chalk.bold.underline.greenBright('v' + pkg.version),
     '-v, --version'
 )
 
@@ -32,3 +32,5 @@ mainHandle(program)
 if (process.argv.length === 2) {
     noOptionHandle(program)
 }
+
+export {}

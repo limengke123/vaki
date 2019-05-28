@@ -1,3 +1,4 @@
+import commander = require('commander')
 const clear = require('clear')
 const figlet = require('figlet')
 const { stockConstant } = require('../../constant')
@@ -6,7 +7,7 @@ const { add } = require('./option/add')
 const { show } = require('./option/show')
 const { message } = require('./option/message')
 
-const stock = (option) => {
+const stock = (option: any) => {
     if (option.add) {
         add(option)
     }
@@ -28,7 +29,7 @@ const stock = (option) => {
     }
 }
 
-exports.stockInstall = program => {
+exports.stockInstall = (program: commander.Command) => {
     program
         .command(stockConstant.STOCK_COMMAND_NAME)
         .option('-a --add', 'add stock code into list')

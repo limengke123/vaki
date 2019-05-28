@@ -52,7 +52,7 @@ const microBlog = {
     }
 }
 
-module.exports = {
+export = {
     segementFault,
     microBlog
 }

@@ -6,8 +6,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
-    "version": "npm run changelog && git add CHANGELOG.md",
     "lint": "eslint --fix src/",
+    "build": "tsc",
+    "build:watch": "tsc -w",
+    "version": "npm run changelog && git add CHANGELOG.md",
     "preversion": "npm run changelog && git add CHANGELOG.md",
     "postversion": "npm publish && git push && git push --tags"
   },
@@ -60,12 +62,15 @@
     "node": ">=8"
   },
   "devDependencies": {
+    "@typescript-eslint/parser": "^1.9.0",
     "babel-eslint": "^10.0.1",
     "conventional-changelog-cli": "^2.0.17",
     "eslint": "^5.16.0",
     "eslint-plugin-babel": "^5.3.0",
+    "eslint-plugin-typescript": "^0.14.0",
     "husky": "^2.1.0",
     "lint-staged": "^8.1.5",
-    "ora": "^3.4.0"
+    "ora": "^3.4.0",
+    "typescript": "^3.4.5"
   }
 }

@@ -12,7 +12,7 @@ const { Markdown } = require('./markdown')
 
 const { get } = require('./http')
 
-module.exports = {
+export = {
     error,
     success,
     Log,

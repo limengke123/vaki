@@ -4,7 +4,7 @@ const NAME_SPACE = 'VAKI_'
 const CONF = 'CONF'
 const DATA = 'DATA'
 
-const getKeyFactory = namespace => key => namespace + key
+const getKeyFactory = (namespace: string) => (key: string) => namespace + key
 
 // 主模块key
 const getMainKey = getKeyFactory(NAME_SPACE + 'MAIN_')
@@ -15,12 +15,12 @@ const getReadKey = getKeyFactory(NAME_SPACE + 'READ_')
 const getStockKey = getKeyFactory(NAME_SPACE + 'STOCK_')
 
 ///------------------- main -------------------///
-    ///----- main_conf -----///
+///----- main_conf -----///
 const MAIN_CONF = getMainKey(CONF)
 const MAIN_CONF_TARGET = 'target'
 const MAIN_CONF_LUCKY_NUMBER = 'luckyNumber'
 
-    ///----- main_data -----///
+///----- main_data -----///
 const MAIN_DATA = getMainKey(DATA)
 const MAIN_DATA_LUCKY_NUMBER = 'luckyNumber'
 const MAIN_DATA_DATE = 'date'
@@ -28,33 +28,33 @@ const MAIN_DATA_DATE = 'date'
 
 
 ///------------------- tool -------------------///
-    ///----- tool_name -----///
+///----- tool_name -----///
 const TOOL_COMMAND_NAME = 'tool'
 
-    ///----- tool_conf -----///
+///----- tool_conf -----///
 const TOOL_CONF = getToolKey(CONF)
 ///------------------- tool -------------------///
 
 
 
 ///------------------- todos -------------------///
-    ///----- todos_name -----///
+///----- todos_name -----///
 const TODO_COMMAND_NAME = 'todo'
 
-    ///----- todos_conf -----///
+///----- todos_conf -----///
 const TODO_CONF = getTodoKey(CONF)
 
-    ///----- todos_data -----///
+///----- todos_data -----///
 const TODO_DATA = getTodoKey(DATA + Time.today)
 const TODO_DATA_LIST = 'TODO_LIST'
 ///------------------- todos -------------------///
 
 
 ///------------------- read -------------------///
-    ///----- read_name -----///
+///----- read_name -----///
 const READ_COMMAND_NAME = 'read'
 
-    ///----- read_conf -----///
+///----- read_conf -----///
 const READ_CONF = getReadKey(CONF)
 const READ_CONF_SEGE = 'segementFault'
 const READ_CONF_BLOG = 'microBlog'
@@ -62,22 +62,22 @@ const READ_CONF_BLOG = 'microBlog'
 
 
 ///------------------- stock -------------------///
-    ///----- stock_name -----///
+///----- stock_name -----///
 const STOCK_COMMAND_NAME = 'stock'
 
-    ///----- stock_conf -----///
+///----- stock_conf -----///
 const STOCK_CONF = getReadKey(CONF)
+///------------------- READ -------------------///
+
+///------------------- DINGDING -------------------///
+///----- DINGDING_NAME -----///
+const DINGDING_COMMAND_NAME = 'dingding'
+
+///----- dingding_conf -----///
+const DINGDING_CONF = getReadKey(CONF)
 ///------------------- read -------------------///
 
-///------------------- dingding -------------------///
-    ///----- dingding_name -----///
-    const DINGDING_COMMAND_NAME = 'dingding'
-
-    ///----- dingding_conf -----///
-const DINGDINNG_CONF = getReadKey(CONF)
-///------------------- read -------------------///
-
-module.exports = {
+export = {
     mainConstant: {
         MAIN_CONF,
         MAIN_CONF_TARGET,
@@ -108,6 +108,6 @@ module.exports = {
     },
     dingdingConstant: {
         DINGDING_COMMAND_NAME,
-        DINGDINNG_CONF
+        DINGDING_CONF
     }
 }

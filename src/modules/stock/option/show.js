@@ -14,8 +14,8 @@ const getColor = rate => {
     if (rate > 0) {
         // 涨了
         switch (true) {
-            case rate > 5:
-                break;
+        case rate > 5:
+            break
         }
     } else if (rate < 0) {
         // 跌了
@@ -71,5 +71,5 @@ exports.show = option => {
             })
         }).catch(err => {
             console.log(chalk.red(err.message))
-    })
+        })
 }

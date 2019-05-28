@@ -1,4 +1,4 @@
-module.exports = {
+export = {
     luckyNumber: true,
     target: 3
 }
