@@ -29,7 +29,7 @@ const stock = (option: any) => {
     }
 }
 
-exports.stockInstall = (program: commander.Command) => {
+export const stockInstall = (program: commander.Command) => {
     program
         .command(stockConstant.STOCK_COMMAND_NAME)
         .option('-a --add', 'add stock code into list')

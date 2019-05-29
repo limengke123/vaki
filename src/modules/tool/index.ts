@@ -1,14 +1,14 @@
-import commander = require('commander')
-const child_process = require('child_process')
-const ConfigStore = require('configstore')
-const clear = require('clear')
-const figlet = require('figlet')
-const { Helper, Log } = require('../../util/index')
-const { toolConstant } = require('../../constant')
-const defaultConfig = require('./defaultConfig')
-const { open } = require('./option/open')
-const { movie } = require('./option/movie/index')
-const { douban } = require('./option/douban/index')
+import * as commander from 'commander'
+import * as child_process from 'child_process'
+import * as ConfigStore from 'configstore'
+import * as clear from 'clear'
+import * as figlet from 'figlet'
+import { Helper, Log } from '../../util'
+import { toolConstant } from '../../constant'
+import defaultConfig from './defaultConfig'
+import { open } from './option/open'
+import { movie } from './option/movie'
+import { doubanHandle } from './option/douban'
 
 const config = new ConfigStore(toolConstant.TOOL_CONF, defaultConfig)
 
@@ -23,7 +23,7 @@ const tool = (option: any) => {
     }
 
     if (option.douban) {
-        douban(option)
+        doubanHandle(option)
     }
 
     if (option.edit) {
@@ -44,7 +44,7 @@ const tool = (option: any) => {
     }
 }
 
-exports.toolInstall = (program: commander.Command) => {
+export const toolInstall = (program: commander.Command) => {
     program
         .command(toolConstant.TOOL_COMMAND_NAME)
         .alias('o')

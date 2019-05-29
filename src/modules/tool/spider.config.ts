@@ -1,4 +1,4 @@
-const dytt = {
+export const dytt = {
     url: 'http://s.ygdy8.com/plus/so.php?kwtype=0&searchtype=title&keyword=',
     rules: {
         list: '.co_content8 ul table',
@@ -15,7 +15,7 @@ const dytt = {
     }
 }
 
-const douban = {
+export const douban = {
     url: 'https://www.douban.com/search?q=',
     rules: {
         list: '.result-list .result',
@@ -53,7 +53,7 @@ const douban = {
     }
 }
 
-const doubanMovieDetail = {
+export const doubanMovieDetail = {
     rules: {
         rule: {
             director: {
@@ -76,8 +76,3 @@ const doubanMovieDetail = {
     }
 }
 
-export = {
-    dytt,
-    douban,
-    doubanMovieDetail
-}

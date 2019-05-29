@@ -1,4 +1,4 @@
-const {
+export {
     error,
     success,
     Log,
@@ -6,20 +6,8 @@ const {
     Time,
     Common,
     Tool
-} = require('./common')
+} from './common'
 
-const { Markdown } = require('./markdown')
+export { Markdown } from './markdown'
 
-const { get } = require('./http')
-
-export = {
-    error,
-    success,
-    Log,
-    Helper,
-    Time,
-    Common,
-    Tool,
-    Markdown,
-    get
-}
+export { get } from './http'

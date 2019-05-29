@@ -77,37 +77,35 @@ const DINGDING_COMMAND_NAME = 'dingding'
 const DINGDING_CONF = getReadKey(CONF)
 ///------------------- read -------------------///
 
-export = {
-    mainConstant: {
-        MAIN_CONF,
-        MAIN_CONF_TARGET,
-        MAIN_CONF_LUCKY_NUMBER,
-        MAIN_DATA,
-        MAIN_DATA_LUCKY_NUMBER,
-        MAIN_DATA_DATE
-    },
-    toolConstant: {
-        TOOL_CONF,
-        TOOL_COMMAND_NAME
-    },
-    todoConstant: {
-        TODO_CONF,
-        TODO_DATA,
-        TODO_DATA_LIST,
-        TODO_COMMAND_NAME
-    },
-    readConstant: {
-        READ_COMMAND_NAME,
-        READ_CONF,
-        READ_CONF_SEGE,
-        READ_CONF_BLOG
-    },
-    stockConstant: {
-        STOCK_COMMAND_NAME,
-        STOCK_CONF
-    },
-    dingdingConstant: {
-        DINGDING_COMMAND_NAME,
-        DINGDING_CONF
-    }
+export const mainConstant = {
+    MAIN_CONF,
+    MAIN_CONF_TARGET,
+    MAIN_CONF_LUCKY_NUMBER,
+    MAIN_DATA,
+    MAIN_DATA_LUCKY_NUMBER,
+    MAIN_DATA_DATE
+}
+export const toolConstant = {
+    TOOL_CONF,
+    TOOL_COMMAND_NAME
+}
+export const todoConstant = {
+    TODO_CONF,
+    TODO_DATA,
+    TODO_DATA_LIST,
+    TODO_COMMAND_NAME
+}
+export const readConstant = {
+    READ_COMMAND_NAME,
+    READ_CONF,
+    READ_CONF_SEGE,
+    READ_CONF_BLOG
+}
+export const stockConstant = {
+    STOCK_COMMAND_NAME,
+    STOCK_CONF
+}
+export const dingdingConstant = {
+    DINGDING_COMMAND_NAME,
+    DINGDING_CONF
 }

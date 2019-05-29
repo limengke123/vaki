@@ -17,12 +17,12 @@ const format = (label: string, msg: string) => {
 
 const chalkTag = (msg: string) => chalk.bgBlackBright.white.dim(` ${msg} `)
 
-const Log = {
-    error(message: string, tag: string): void {
+export const Log = {
+    error(message: string, tag?: string): void {
         log(format(chalk.bgRed.black(' ERROR ') +
             (tag ? chalkTag(tag) : ''), message))
     },
-    success (message: string, tag: string): void {
+    success (message: string, tag?: string): void {
         log(format(chalk.bgGreen.black(' SUCCESS ') +
             (tag ? chalkTag(tag) : ''), message))
     },
@@ -34,13 +34,13 @@ const Log = {
     }
 }
 
-const Helper = {
+export const Helper = {
     getArr(str: string, separator: string = ','): Array<string> {
         return str.split(separator)
     }
 }
 
-const Common = {
+export const Common = {
     getLuckNumber (): number {
         return ~~(Math.random() * 10)
     },
@@ -56,7 +56,7 @@ const Common = {
     }
 }
 
-const Time = {
+export const Time = {
     get today (): string {
         const date: Date = new Date()
         const dateArr = [
@@ -69,7 +69,7 @@ const Time = {
 }
 
 // Tool模块
-const Tool = {
+export const Tool = {
     transformToLink (str: string): string {
         // 让一个类链接变成一个链接
         const prefix: string = 'http://'
@@ -107,12 +107,5 @@ const Tool = {
     }
 }
 
-export = {
-    error: Log.error,
-    success: Log.success,
-    Log,
-    Helper,
-    Time,
-    Common,
-    Tool
-}
+export const error = Log.error
+export const success = Log.success

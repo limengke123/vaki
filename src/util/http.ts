@@ -1,12 +1,12 @@
-const http = require('http')
-import iconv = require('iconv-lite')
+import * as http from 'http'
+import * as iconv from 'iconv-lite'
 
 export interface getOption {
     encoding: string
 }
 
-const get:(url: string, option: getOption) => Promise<any> = (url: string, option: getOption = { encoding: 'utf8'}) => new Promise((resolve, reject) => {
-    http.get(url, (res: { statusCode: number; resume?: any; pipe?: any; }) => {
+export const get:(url: string, option: getOption) => Promise<any> = (url: string, option: getOption = { encoding: 'utf8'}) => new Promise((resolve, reject) => {
+    http.get(url, (res: http.IncomingMessage) => {
         const { statusCode } = res
         let error
         if (statusCode !== 200) {
@@ -28,7 +28,3 @@ const get:(url: string, option: getOption) => Promise<any> = (url: string, optio
         })
     }).on('error', (e: { message: string; }) => reject(e.message))
 })
-
-module.exports = {
-    get
-}

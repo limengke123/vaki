@@ -1,19 +1,20 @@
 #!/usr/bin/env node
-const program = require('commander')
-const chalk = require('chalk')
+import * as program from 'commander'
+import * as chalk from 'chalk'
 const pkg = require('../package')
-const { noOptionHandle, mainInstall, mainHandle } = require('./modules/main/index')
-const { errorHandle } = require('./error')
-const { todoInstall } = require('./modules/todo/index')
-const { stockInstall } = require('./modules/stock/index')
-const { dingdingInstall } = require('./modules/dingding/index')
-const { toolInstall } = require('./modules/tool/index')
-const { readingInstall } = require('./modules/read/index')
+import { noOptionHandle, mainInstall, mainHandle } from './modules/main'
+import errorHandle from './error'
+import { todoInstall } from './modules/todo'
+import { stockInstall } from './modules/stock'
+import { dingdingInstall } from './modules/dingding'
+import { toolInstall } from './modules/tool'
+import { readingInstall } from './modules/read'
 
 errorHandle()
 
 program.version(
-    chalk.bold.underline.greenBright('v' + pkg.version),
+    // @ts-ignore
+    chalk.underline.bold.greenBright('v' + pkg.version),
     '-v, --version'
 )
 
@@ -30,7 +31,9 @@ program.parse(process.argv)
 mainHandle(program)
 
 if (process.argv.length === 2) {
-    noOptionHandle(program)
+    noOptionHandle()
+        .catch((err: Error) => {
+            console.log(err.message)
+        })
 }
 
-export {}

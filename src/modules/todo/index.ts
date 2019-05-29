@@ -87,7 +87,7 @@ const index = (option: any) => {
     }
 }
 
-exports.todoInstall = (program: commander.Command) => {
+export const todoInstall = (program: commander.Command) => {
     program
         .command(todoConstant.TODO_COMMAND_NAME)
         .alias('t')

@@ -14,7 +14,6 @@ const dingding = (option) => {
     if (option.show) {
         show(option)
     }
-
     if (option.remove) {
         remove(option)
     }
@@ -29,7 +28,7 @@ const dingding = (option) => {
     }
 }
 
-exports.dingdingInstall = program => {
+export const dingdingInstall = program => {
     program
         .command(dingdingConstant.DINGDING_COMMAND_NAME)
         .option('-a --add', 'add webhooks into list')

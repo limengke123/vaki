@@ -10,7 +10,7 @@ export interface columns {
     show: boolean,
     name: string
 }
-class Markdown {
+export class Markdown {
 
     private text: string
 
@@ -93,8 +93,4 @@ class Markdown {
     private wrapperWithColor (text: string, color: string = '#333'): string {
         return `<font color=${color}>${text}</font>`
     }
-}
-
-module.exports = {
-    Markdown
 }
