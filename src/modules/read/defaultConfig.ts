@@ -1,5 +1,5 @@
 const { readConstant } = require('../../constant')
-export = {
+export default {
     // segementFault 显示长度
     [readConstant.READ_CONF_SEGE]: {
         length: 20

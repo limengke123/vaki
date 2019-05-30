@@ -1,13 +1,13 @@
-import commander = require('commander')
-const child_process = require('child_process')
-const clear = require('clear')
-const figlet = require('figlet')
-const ConfigStore = require('configstore')
-const { Log } = require('../../util/index')
-const { readConstant } = require('../../constant')
-const defaultConfig = require('./defaultConfig')
-const { segementFaultHandler } = require('./sites/segementFault')
-const { microBlogFaultHandler } = require('./sites/microBlog')
+import * as commander from 'commander'
+import * as child_process from 'child_process'
+import * as clear from 'clear'
+import * as figlet from 'figlet'
+import * as ConfigStore from 'configstore'
+import { Log } from '../../util'
+import { readConstant } from '../../constant'
+import defaultConfig from './defaultConfig'
+import { segementFaultHandler } from './sites/segementFault'
+import { microBlogFaultHandler } from './sites/microBlog'
 
 const config = new ConfigStore(readConstant.READ_CONF, defaultConfig)
 

@@ -1,10 +1,10 @@
-import commander = require('commander')
-const ConfigStore = require('configstore')
-const figlet = require('figlet')
-const clear = require('clear')
-const { Helper, error, Log } = require('../../util/index')
-const { todoConstant } = require('../../constant')
-const { add } = require('./option/add')
+import * as commander from 'commander'
+import * as ConfigStore from 'configstore'
+import * as figlet from 'figlet'
+import * as clear from 'clear'
+import { Helper, error, Log } from '../../util'
+import { todoConstant } from '../../constant'
+import { add } from './option/add'
 
 const config = new ConfigStore(todoConstant.TODO_DATA, {[todoConstant.TODO_DATA_LIST]: []})
 

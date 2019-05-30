@@ -1,11 +1,11 @@
-const ConfigStore = require('configstore')
-const inquirer = require('inquirer')
-const chalk = require('chalk')
-const { todoConstant } = require('../../../constant')
+import * as  ConfigStore from 'configstore'
+import * as inquirer from 'inquirer'
+import chalk from 'chalk'
+import { todoConstant } from '../../../constant'
 
 const config = new ConfigStore(todoConstant.TODO_DATA, {[todoConstant.TODO_DATA_LIST]: []})
 
-exports.add = (option: any) => {
+export const add = (option: any) => {
     let todoList = config.get(todoConstant.TODO_DATA_LIST)
     if (option.add === true) {
         // 没有传值的时候，用交互式的提交方式
@@ -13,7 +13,7 @@ exports.add = (option: any) => {
             type: 'input',
             name: 'text',
             message: 'input your todo-item'
-        }).then((answer: {text: string}) => {
+        }).then((answer: any) => {
             const { text } = answer
             const item = {
                 text: text,

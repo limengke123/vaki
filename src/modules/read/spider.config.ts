@@ -1,4 +1,4 @@
-const segementFault = {
+export const segementFault = {
     url: 'https://segmentfault.com/hottest/weekly',
     rules: {
         list: 'div.news-list .news-item',
@@ -23,7 +23,7 @@ const segementFault = {
     }
 }
 
-const microBlog = {
+export const microBlog = {
     url: 'https://s.weibo.com/top/summary?Refer=top_hot&topnav=1&wvr=6',
     rules: {
         list: 'tbody tr',
@@ -50,9 +50,4 @@ const microBlog = {
             }
         }
     }
-}
-
-export = {
-    segementFault,
-    microBlog
 }

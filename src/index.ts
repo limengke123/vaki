@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import * as program from 'commander'
-import * as chalk from 'chalk'
+import chalk from 'chalk'
 import * as pkg from '../package.json'
 import { noOptionHandle, mainInstall, mainHandle } from './modules/main'
 import errorHandle from './error'
@@ -13,7 +13,6 @@ import { readingInstall } from './modules/read'
 errorHandle()
 
 program.version(
-    // @ts-ignore
     chalk.underline.bold.greenBright('v' + pkg.version),
     '-v, --version'
 )

@@ -1,6 +1,6 @@
-const chalk = require('chalk')
-const iconv = require('iconv-lite')
-const ora = require('ora')
+import chalk, * as Chalk from 'chalk'
+import * as iconv from 'iconv-lite'
+import * as ora from 'ora'
 const padStart = String.prototype.padStart
 const log = console.log
 
@@ -40,11 +40,13 @@ export const Helper = {
     }
 }
 
+export type color = 'green'|'red'|'blue'|'grey'
+
 export const Common = {
     getLuckNumber (): number {
         return ~~(Math.random() * 10)
     },
-    getTitle(str: string, color: string = 'green'): string {
+    getTitle(str: string, color: color = 'green'): string {
         const baseLength: number = 30
         const lastSpace: number = baseLength - str.length
         const left: number = ~~(lastSpace / 2)

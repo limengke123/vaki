@@ -1,6 +1,6 @@
 const { get } = require('../../util')
 
-const getStockByCode = (code: string) => {
+export const getStockByCode = (code: string) => {
     if (!code) {
         return Promise.reject('没有传code过来')
     }
@@ -37,6 +37,3 @@ const getStockByCode = (code: string) => {
     })
 }
 
-module.exports = {
-    getStockByCode,
-}

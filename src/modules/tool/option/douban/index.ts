@@ -21,7 +21,7 @@ export const doubanHandle = (option: any) => {
         type: 'input',
         name: 'word',
         message: 'input search word'
-    }).then((answer: {word: string}) => {
+    }).then((answer: any) => {
         return new Promise((resolve, reject) => {
             const { word } = answer
             const encodeUrl: string = Tool.getUriEncodeGBk(word, 'utf8')
@@ -37,13 +37,13 @@ export const doubanHandle = (option: any) => {
             })
             spider.start()
         })
-    }).then((data: Array<Idouban>)=> {
-        const result = data.filter(item => item.tag)
+    }).then((data: any)=> {
+        const result = data.filter((item: Idouban) => item.tag)
         return inquirer.prompt({
             type: 'list',
             name: 'item',
             message: 'select a item',
-            choices: result.map(item => {
+            choices: result.map((item: Idouban) => {
                 let {
                     tag,
                     rateNumber = '',

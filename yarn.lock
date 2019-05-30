@@ -149,6 +149,11 @@
   resolved "https://registry.npmjs.org/@types/semver/-/semver-6.0.0.tgz#86ba89f02a414e39c68d02b351872e4ed31bd773"
   integrity sha512-OO0srjOGH99a4LUN2its3+r6CBYcplhJ466yLqs+zvAWgphCpS8hYZEZ797tRDP/QKcqTdb/YCN6ifASoAWkrQ==
 
+"@types/terminal-link@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.npmjs.org/@types/terminal-link/-/terminal-link-1.1.0.tgz#be71255ba4366453c8543a1bb0b73fbe8331add5"
+  integrity sha512-ve8zZRA6xEQcDh7QcC8LmLXA2jgD3jdH2B7f4k2yutK0w1yZ7WVEMqEZ5PWyO6z3H/VP80a6GU4y+FEW/HWsLQ==
+
 "@types/through@*":
   version "0.0.29"
   resolved "https://registry.npmjs.org/@types/through/-/through-0.0.29.tgz#72943aac922e179339c651fa34a4428a4d722f93"

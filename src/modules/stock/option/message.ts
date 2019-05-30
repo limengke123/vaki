@@ -1,23 +1,34 @@
-const ConfigStore = require('configstore')
-const axios = require('axios')
-const chalk = require('chalk')
-const ora = require('ora')
-const { stockConstant, dingdingConstant } = require('../../../constant')
-const { getStockByCode } = require('../api')
-const { Markdown } = require('../../../util/index')
+import * as ConfigStore from 'configstore'
+import axios from 'axios'
+import chalk from 'chalk'
+import * as ora from 'ora'
+import { stockConstant, dingdingConstant } from '../../../constant'
+import { getStockByCode } from '../api'
+import { Markdown } from '../../../util'
 
 const spinner = ora({
     spinner: 'dots',
     text: chalk.yellow('自选股票数据正在拼命加载中...')
 })
 
+
+export interface Istock {
+    name: string,
+    todayOpenPrice: number,
+    yesterdayClosingPrice: number,
+    currentPrice: number,
+    highestPrice: number,
+    lowestPrice: number,
+    code: string
+}
+
 const md = new Markdown()
 
 const stockConfig = new ConfigStore(stockConstant.STOCK_CONF, {mine: []})
-const dingdingConfig = new ConfigStore(dingdingConstant.DINGDINNG_CONF, {webhooks: []})
+const dingdingConfig = new ConfigStore(dingdingConstant.DINGDING_CONF, {webhooks: []})
 
-const send = list => {
-    const webhooks = dingdingConfig.get('webhooks')
+const send = (list: string) => {
+    const webhooks: Array<string> = dingdingConfig.get('webhooks')
     if (!webhooks.length) {
         return console.log('you haven\'t add any webhook yet')
     }
@@ -34,7 +45,7 @@ const send = list => {
     })
 }
 
-exports.message = option => {
+export const message = () => {
     const mine = stockConfig.get('mine')
     if (!mine.length) {
         return console.log('you haven\'t add any stock code yet')
@@ -42,15 +53,15 @@ exports.message = option => {
     const codes = mine.join(',')
     spinner.start()
     getStockByCode(codes)
-        .then(res => {
+        .then((res: Array<Istock> | Istock ) => {
             spinner.stop()
             if (!Array.isArray(res)) {
                 res = [res]
             }
 
             const list = []
-            const rawData = []
-            res.forEach((stock, index) => {
+            const rawData: any[] = []
+            res.forEach((stock, index: number) => {
                 let {
                     name,
                     todayOpenPrice,
@@ -72,12 +83,12 @@ exports.message = option => {
                 } else if (diff < 0) {
                     color = '#0f990f'
                 }
-                currentPrice = (currentPrice.toFixed(2)).padEnd(9)
-                diff = (prefix + diff.toFixed(2)).padEnd(8)
+                const currentPriceStr: string = (currentPrice.toFixed(2)).padEnd(9)
+                const diffStr: string = (prefix + diff.toFixed(2)).padEnd(8)
                 rate = (prefix + rate).padEnd(8)
                 code = code.padEnd(10)
                 const number = ((index + 1) + '.').padEnd(3)
-                const result = number + currentPrice + diff + rate + code + name
+                const result = number + currentPriceStr + diffStr + rate + code + name
                 list.push(result)
                 rawData.push({
                     name,
@@ -100,7 +111,7 @@ exports.message = option => {
                     .addRawText('\n')
             })
             send(md.getText())
-        }).catch(err => {
+        }).catch((err: Error)=> {
             console.log(chalk.red(err.message))
         })
 }

@@ -1,22 +1,22 @@
-import commander = require('commander')
-const clear = require('clear')
-const figlet = require('figlet')
-const { stockConstant } = require('../../constant')
-const { Log } = require('../../util/index')
-const { add } = require('./option/add')
-const { show } = require('./option/show')
-const { message } = require('./option/message')
+import * as commander from 'commander'
+import * as clear from 'clear'
+import * as figlet from 'figlet'
+import { stockConstant } from '../../constant'
+import { Log } from '../../util'
+import { add } from './option/add'
+import { show } from './option/show'
+import { message } from './option/message'
 
 const stock = (option: any) => {
     if (option.add) {
-        add(option)
+        add()
     }
     if (option.show) {
         show(option)
     }
 
     if (option.message) {
-        message(option)
+        message()
     }
 
     if(option.parent.rawArgs.length === 3) {

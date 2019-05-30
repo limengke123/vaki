@@ -1,4 +1,4 @@
-import * as opener from 'opener'
+import opener = require('opener')
 import * as ConfigStore from 'configstore'
 import { Tool } from '../../../util'
 import { toolConstant } from '../../../constant'

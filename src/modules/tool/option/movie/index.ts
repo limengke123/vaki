@@ -17,7 +17,7 @@ export const movie = (option: any) => {
         type: 'input',
         name: 'names',
         message: 'input movie name:'
-    }).then((answer: {names: string}) => {
+    }).then((answer: any) => {
         return new Promise((resolve, reject) => {
             const { names } = answer
             const encodeUrl: string = Tool.getUriEncodeGBk(names)
@@ -40,7 +40,7 @@ export const movie = (option: any) => {
             })
             spider.start()
         })
-    }).then((data: Array<Imovie>) => {
+    }).then((data: any) => {
         if (!data.length) {
             throw new Error('没有搜索到相关电影，换一个关键词试试？')
         }
@@ -48,7 +48,7 @@ export const movie = (option: any) => {
             type: 'list',
             name: 'movie',
             message: 'select a movie list below:',
-            choices: data.map(item => ({
+            choices: data.map((item: Imovie) => ({
                 name: item.title,
                 value: item
             }))
