@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import * as program from 'commander'
 import * as chalk from 'chalk'
-const pkg = require('../package')
+import * as pkg from '../package.json'
 import { noOptionHandle, mainInstall, mainHandle } from './modules/main'
 import errorHandle from './error'
 import { todoInstall } from './modules/todo'

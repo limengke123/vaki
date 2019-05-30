@@ -1,7 +1,6 @@
-const semver = require('semver')
-const chalk = require('chalk')
-const { error } = require('./util/index')
-const pkg = require('../package')
+import * as semver from 'semver'
+import { error } from './util'
+import * as pkg from '../package.json'
 
 const errorHandle = () => {
     if (!semver.satisfies(process.version, pkg.engines.node)) {
@@ -11,9 +10,8 @@ const errorHandle = () => {
         )
         process.exit(1)
     }
-    // @ts-ignore
-    process.on('unhandledRejection', (err: { message: string; }) => {
-        console.log(chalk.red(err.message))
+    process.on('unhandledRejection', (reason, promise) => {
+        console.log(reason)
         process.exit(1)
     })
 }

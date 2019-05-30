@@ -8,7 +8,7 @@
   },
   "include": [
     "./src/**/*.ts",
-    "lib.d.ts"
+    "types/lib.d.ts"
   ],
   "exclude": [
     "node_modules",
