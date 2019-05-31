@@ -65,7 +65,7 @@ export const show = () => {
                 rateStr = chalk[color]((prefix + rateStr).padEnd(8))
                 code = chalk.grey(code.padEnd(10))
                 const number = ((index + 1) + '.').padEnd(3)
-                const result = number + currentPrice + diffStr + rateStr + code + name
+                const result = number + currentPriceStr + diffStr + rateStr + code + name
                 console.log(result)
             })
         }).catch((err: Error )=> {
