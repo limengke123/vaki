@@ -1,17 +1,16 @@
-import commander = require('commander')
-// const child_process = require('child_process')
+import * as commander from 'commander'
 import * as child_process from 'child_process'
-const clear = require('clear')
-const figlet = require('figlet')
-const ConfigStore = require('configstore')
-const { mainConstant } = require('../../constant')
-const { Log } = require('../../util/index')
-const pkg = require('../../../package')
-const defaultConfig = require('./defaultConfig')
-const { baseInfo } = require('./modules/baseInfo')
-const { luckyNumber } = require('./modules/luckyNumber')
-const { target } = require('./modules/target')
-const { history } = require('./modules/history')
+import * as clear from 'clear'
+import * as figlet from 'figlet'
+import * as ConfigStore from 'configstore'
+import { mainConstant } from '../../constant'
+import { Log } from '../../util'
+import pkg from '../../../package.json'
+import defaultConfig from './defaultConfig'
+import { baseInfo } from './modules/baseInfo'
+import { luckyNumber } from './modules/luckyNumber'
+import { handleTarget } from './modules/target'
+import { history } from './modules/history'
 
 const config = new ConfigStore(mainConstant.MAIN_CONF, defaultConfig)
 
@@ -35,7 +34,7 @@ export const noOptionHandle = async () => {
     await history()
     // 显示目标
     if (config.get(mainConstant.MAIN_CONF_TARGET)) {
-        target()
+        handleTarget()
     }
 }
 export const mainHandle = (program: commander.Command)=> {

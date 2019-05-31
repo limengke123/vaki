@@ -1,16 +1,16 @@
-const inquire = require('inquirer')
-const ConfigStore = require('configstore')
-const chalk = require('chalk')
-const { dingdingConstant } = require('../../../constant')
+import * as inquire from 'inquirer'
+import * as ConfigStore from 'configstore'
+import chalk from 'chalk'
+import { dingdingConstant } from '../../../constant'
 
-const config = new ConfigStore(dingdingConstant.DINGDINNG_CONF, {webhooks: []})
+const config = new ConfigStore(dingdingConstant.DINGDING_CONF, {webhooks: []})
 
-exports.add = () => {
+export const add = () => {
     inquire.prompt({
         type: 'input',
         message: 'input your dingding-webhook',
         name: 'webhook'
-    }).then(res => {
+    }).then((res: any) => {
         return Promise.all([
             Promise.resolve(res),
             inquire.prompt({
@@ -20,7 +20,7 @@ exports.add = () => {
             })
 
         ])
-    }).then(([info, answer]) => {
+    }).then(([info, answer]: [any, any]) => {
         if (answer.check) {
             const { webhook }= info
             const webhooks = config.get('webhooks')
@@ -32,7 +32,7 @@ exports.add = () => {
                 console.log(chalk.blue(`成功添加了${webhook}到列表了`))
             }
         }
-    }).catch(err => {
+    }).catch((err: Error) => {
         console.log('error', err)
     })
 }

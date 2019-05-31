@@ -161,6 +161,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/update-notifier@^2.5.0":
+  version "2.5.0"
+  resolved "https://registry.npmjs.org/@types/update-notifier/-/update-notifier-2.5.0.tgz#63cfcee92cc915f9a6eea4d1442ec6efd012e118"
+  integrity sha512-YV+ZcSIiv30GhLM7WwxI+bsbcW34d3Yhl2JSFBNFL6qtfsoI9++hogxz+jTqeS86ynKcMUE0AsnLWQynfJnsfA==
+
 "@typescript-eslint/experimental-utils@1.9.0":
   version "1.9.0"
   resolved "https://registry.npmjs.org/@typescript-eslint/experimental-utils/-/experimental-utils-1.9.0.tgz#a92777d0c92d7bc8627abd7cdb06cdbcaf2b39e8"

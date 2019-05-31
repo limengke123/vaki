@@ -1,15 +1,20 @@
-const ConfigStore = require('configstore')
-const chalk = require('chalk')
-const { Common } = require('../../../util/index')
-const { todoConstant, mainConstant } = require('../../../constant')
+import * as ConfigStore from 'configstore'
+import chalk from 'chalk'
+import { Common } from '../../../util'
+import { todoConstant, mainConstant } from '../../../constant'
 
 const mainConfConfig = new ConfigStore(mainConstant.MAIN_CONF)
 const todoConfig = new ConfigStore(todoConstant.TODO_DATA)
 
 let target = mainConfConfig.get(mainConstant.MAIN_CONF_TARGET)
-let todoList = todoConfig.get(todoConstant.TODO_DATA_LIST)
+let todoList: Array<ItodoItem> = todoConfig.get(todoConstant.TODO_DATA_LIST)
 
-exports.target = () => {
+export interface ItodoItem {
+    isComplete: boolean,
+    text: string
+}
+
+export const handleTarget = () => {
     console.log(' ')
     console.log(Common.getTitle('target'))
     if (!todoList) {

@@ -1,21 +1,22 @@
-const clear = require('clear')
-const figlet = require('figlet')
-const { dingdingConstant } = require('../../constant')
-const { Log } = require('../../util/index')
-const { add } = require('./option/add')
-const { show } = require('./option/show')
-const { remove } = require('./option/remove')
+import * as clear from 'clear'
+import * as figlet from 'figlet'
+import * as commander from 'commander'
+import { dingdingConstant } from '../../constant'
+import { Log } from '../../util'
+import { add } from './option/add'
+import { show } from './option/show'
+import { remove } from './option/remove'
 
-const dingding = (option) => {
+const dingding = (option: any) => {
     if (option.add) {
-        add(option)
+        add()
     }
 
     if (option.show) {
-        show(option)
+        show()
     }
     if (option.remove) {
-        remove(option)
+        remove()
     }
 
     if(option.parent.rawArgs.length === 3) {
@@ -28,7 +29,7 @@ const dingding = (option) => {
     }
 }
 
-export const dingdingInstall = program => {
+export const dingdingInstall = (program: commander.Command)=> {
     program
         .command(dingdingConstant.DINGDING_COMMAND_NAME)
         .option('-a --add', 'add webhooks into list')

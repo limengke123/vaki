@@ -12,7 +12,7 @@ const stock = (option: any) => {
         add()
     }
     if (option.show) {
-        show(option)
+        show()
     }
 
     if (option.message) {

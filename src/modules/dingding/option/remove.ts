@@ -1,19 +1,18 @@
-const inquire = require('inquirer')
-const ConfigStore = require('configstore')
-const chalk = require('chalk')
-const { dingdingConstant } = require('../../../constant')
-const { success } = require('../../../util/index')
+import * as inquire from 'inquirer'
+import * as ConfigStore from 'configstore'
+import { dingdingConstant } from '../../../constant'
+import { success } from '../../../util'
 
-const config  = new ConfigStore(dingdingConstant.DINGDINNG_CONF, {webhooks: []})
+const config  = new ConfigStore(dingdingConstant.DINGDING_CONF, {webhooks: []})
 
-exports.remove = option => {
-    const webhooks = config.get('webhooks')
+export const remove = () => {
+    const webhooks: Array<string> = config.get('webhooks')
     inquire.prompt({
         type: 'list',
         message: 'chose a webhooks that you want to remove',
         name: 'item',
         choices: webhooks
-    }).then(({item}) => {
+    }).then(({item}: any) => {
         return Promise.all([
             Promise.resolve(item),
             inquire.prompt({
@@ -22,7 +21,7 @@ exports.remove = option => {
                 name: 'check'
             })
         ])
-    }).then(([item, answer]) => {
+    }).then(([item, answer]: [any, any]) => {
         if (answer.check) {
             const index = webhooks.findIndex(hooks => hooks === item)
             webhooks.splice(index, 1)
