@@ -1,3 +1,12 @@
+## [0.7.6](https://github.com/limengke123/van/compare/v0.7.5...v0.7.6) (2019-05-31)
+
+
+### Bug Fixes
+
+* 修复发布的时候没有发布整个 lib 文件 ([3e430c8](https://github.com/limengke123/van/commit/3e430c8))
+
+
+
 ## [0.7.5](https://github.com/limengke123/van/compare/v0.7.4...v0.7.5) (2019-05-31)
 
 
