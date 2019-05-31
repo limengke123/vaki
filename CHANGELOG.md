@@ -1,3 +1,19 @@
+## [0.7.5](https://github.com/limengke123/van/compare/v0.7.4...v0.7.5) (2019-05-31)
+
+
+### Bug Fixes
+
+* 修复pkg引用的路径错误 ([5ef6f60](https://github.com/limengke123/van/commit/5ef6f60))
+
+
+### Features
+
+* 发布文件修改为lib/index.js ([2f0c653](https://github.com/limengke123/van/commit/2f0c653))
+* 发布版本前，自动打包 ([a4e7d74](https://github.com/limengke123/van/commit/a4e7d74))
+* 迁移所有js代码到ts上 ([625a6cf](https://github.com/limengke123/van/commit/625a6cf))
+
+
+
 ## [0.7.4](https://github.com/limengke123/van/compare/v0.7.3...v0.7.4) (2019-05-27)
 
 
