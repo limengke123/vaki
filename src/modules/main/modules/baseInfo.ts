@@ -1,5 +1,5 @@
 import { Common, Time } from '../../../util'
-import pkg from '../../../../package.json'
+import * as pkg from '../../../../package.json'
 import * as updateNotifier from 'update-notifier'
 
 export const baseInfo = () => {
