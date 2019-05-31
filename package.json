@@ -10,7 +10,7 @@
     "build": "tsc",
     "build:watch": "tsc -w",
     "version": "npm run changelog && git add CHANGELOG.md",
-    "preversion": "npm run changelog && git add CHANGELOG.md",
+    "preversion": "npm run build && npm run changelog && git add CHANGELOG.md",
     "postversion": "npm publish && git push && git push --tags"
   },
   "repository": {
