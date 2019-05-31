@@ -12,13 +12,17 @@ interface Imovie {
     title: string
 }
 
+interface ILInk {
+    ftpLink: string | Array<string>
+}
+
 export const movie = (option: any) => {
     inquirer.prompt({
         type: 'input',
         name: 'names',
         message: 'input movie name:'
     }).then((answer: any) => {
-        return new Promise((resolve, reject) => {
+        return new Promise<Array<Imovie>>((resolve, reject) => {
             const { names } = answer
             const encodeUrl: string = Tool.getUriEncodeGBk(names)
             if (encodeUrl.length <= 6) {
@@ -40,7 +44,7 @@ export const movie = (option: any) => {
             })
             spider.start()
         })
-    }).then((data: any) => {
+    }).then((data: Array<Imovie>) => {
         if (!data.length) {
             throw new Error('没有搜索到相关电影，换一个关键词试试？')
         }
@@ -58,7 +62,7 @@ export const movie = (option: any) => {
         const { url } = movie
         const link: string = (new URL(dytt.url)).origin + url
         const spinner: ora.Ora = spinnerFactory('下载链接正在拼命加载中...')
-        return new Promise((resolve, reject) => {
+        return new Promise<ILInk>((resolve, reject) => {
             spinner.start()
             const spider = new Araneida({
                 links: {
@@ -72,7 +76,7 @@ export const movie = (option: any) => {
                         }
                     }
                 },
-                done: (data: any) => {
+                done: (data: ILInk) => {
                     spinner.stop()
                     resolve(data)
                 },
@@ -80,7 +84,7 @@ export const movie = (option: any) => {
             })
             spider.start()
         })
-    }).then((data: any) => {
+    }).then((data: ILInk) => {
         success('以下为下载链接:')
         if (Array.isArray(data.ftpLink)) {
             data.ftpLink.forEach((link: string, index: number, array: Array<any>) => {
