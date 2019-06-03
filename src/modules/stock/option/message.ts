@@ -22,6 +22,16 @@ export interface Istock {
     code: string
 }
 
+export interface IMessageStock {
+    name: string,
+    currentPriceStr: string,
+    diffStr: string,
+    rate: string,
+    code: string,
+    number: string,
+    color: string
+}
+
 const md = new Markdown()
 
 const stockConfig = new ConfigStore(stockConstant.STOCK_CONF, {mine: []})
@@ -90,21 +100,22 @@ export const message = () => {
                 const number = ((index + 1) + '.').padEnd(3)
                 const result = number + currentPriceStr + diffStr + rate + code + name
                 list.push(result)
-                rawData.push({
+                let rawDataItem: IMessageStock = {
                     name,
-                    currentPrice,
-                    diff,
+                    currentPriceStr,
+                    diffStr,
                     rate,
                     code,
                     color,
                     number
-                })
+                }
+                rawData.push(rawDataItem)
             })
-            rawData.forEach(item => {
-                const { number, name, currentPrice, diff, rate, code, color} = item
+            rawData.forEach((item: IMessageStock) => {
+                const { number, name, currentPriceStr, diffStr, rate, code, color} = item
                 md.addText(number, '#49634d')
-                    .addText(currentPrice, '#3A4E52')
-                    .addText(diff, color)
+                    .addText(currentPriceStr, '#3A4E52')
+                    .addText(diffStr, color)
                     .addText(rate, color)
                     .addText(code, '#797a80')
                     .addBoldText(name)
