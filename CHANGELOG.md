@@ -1,3 +1,18 @@
+## [0.7.7](https://github.com/limengke123/van/compare/v0.7.6...v0.7.7) (2019-06-03)
+
+
+### Bug Fixes
+
+* **stock:** 修复stock推送钉钉时，传参错误 ([5b9aa80](https://github.com/limengke123/van/commit/5b9aa80))
+* **stock:** 修复打印股票的显示的数字异常 ([abf1db9](https://github.com/limengke123/van/commit/abf1db9))
+
+
+### Features
+
+* **movie:** 修复movie ts类型错误 ([4726f8b](https://github.com/limengke123/van/commit/4726f8b))
+
+
+
 ## [0.7.6](https://github.com/limengke123/van/compare/v0.7.5...v0.7.6) (2019-05-31)
 
 
