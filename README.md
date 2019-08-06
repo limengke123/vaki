@@ -13,8 +13,8 @@ $ npm i vaki -g
 ## Module
 
 1. [x] todo-list
-2. [ ] stock
-3. [ ] tool
+2. [x] stock
+3. [x] tool
 4. [x] read
 
 ## Usage
@@ -73,13 +73,62 @@ Reading some thing interesting in the terminal:
 
 ```bash
 
+# --weibo
 # read microBlog news
 $ vaki read -w
 
+# --segementFault
 # read segementFault
 $ vaki read -s
 
 ```
 
-You can still use `r` instead of `read`. Add `-l {number}` to modify the length of showing content. 
+You can still use `r` instead of `read`. 
+
+### stock
+
+fetch stock info:
+
+```bash
+
+# --add
+# add stock code
+$ vaki stock -a
+
+# --show
+# show stock info in the terminal
+# if add -sw, can always fetch info
+$ vaki stock -s
+
+# --message
+# if you have put dingtalk token into, refer to command of dingtalk
+# this will call dingtalk api and then send code message to your dingtalk group by robot
+$ vaki stock -m
+
+```
+
+You can still use `s` instead of `stock`. 
+
+### dingtalk
+
+this is a dingtalk token manager, you can add dingtalk token here thus you can send stock info to your dingtalk group by robot, refer to command of stock --message
+
+```bash
+
+# --add
+# add dingtalk token into list
+$ vaki dingtalk -a
+
+# --show
+# show  dingtalk token list
+$ vaki dingtalk -s
+
+# --remove
+# remove dingtalk token in the list
+$ vaki dingtalk -r
+
+```
+
+
+You can still use `d` instead of `dingtalk`.  
 

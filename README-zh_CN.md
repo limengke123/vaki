@@ -13,8 +13,8 @@ $ npm i vaki -g
 ## 模块
 
 1. [x] todo-list
-2. [ ] stock
-3. [ ] tool
+2. [x] stock
+3. [x] tool
 4. [x] read
 
 ## 用法
