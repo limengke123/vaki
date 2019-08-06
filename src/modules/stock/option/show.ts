@@ -1,10 +1,13 @@
 import * as ConfigStore from 'configstore'
 import chalk from 'chalk'
+import * as clear from 'clear'
 import * as ora from 'ora'
 import { stockConstant } from '../../../constant'
 import { getStockByCode } from '../api'
 import { Istock } from './message'
 import { color } from '../../../util/common'
+
+const defaultIntervalTime = 5000
 
 const spinner = ora({
     spinner: 'dots',
@@ -25,16 +28,36 @@ const getColor = (rate: number) => {
 
 const config = new ConfigStore(stockConstant.STOCK_CONF, {mine: []})
 
-export const show = () => {
+export const show = (time: number | boolean, showIcon: boolean = true) => {
     const mine = config.get('mine')
     if (!mine.length) {
         return console.log('you haven\'t add any stock code yet')
     }
+    if (time) {
+        const intervalTime = typeof time === 'number' ? time : defaultIntervalTime
+        clear()
+        _show(showIcon)
+            .then(() => {
+                return new Promise(resolve => setTimeout(resolve, intervalTime))
+            })
+            .then(() => show(time, false))
+    } else {
+        _show(showIcon)
+            .catch(err => console.log(chalk.red(err.message)))
+    }
+}
+
+const _show  = (icon: boolean = true): Promise<any> => {
+    const mine = config.get('mine')
     const codes = mine.join(',')
-    spinner.start()
-    getStockByCode(codes)
+    if (icon) {
+        spinner.start()
+    }
+    return getStockByCode(codes)
         .then((res: Array<Istock> | Istock)=> {
-            spinner.stop()
+            if (icon) {
+                spinner.stop()
+            }
             if (!Array.isArray(res)) {
                 res = [res]
             }

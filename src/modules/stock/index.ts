@@ -12,7 +12,7 @@ const stock = (option: any) => {
         add()
     }
     if (option.show) {
-        show()
+        show(option.watch)
     }
 
     if (option.message) {
@@ -34,6 +34,7 @@ export const stockInstall = (program: commander.Command) => {
         .command(stockConstant.STOCK_COMMAND_NAME)
         .option('-a --add', 'add stock code into list')
         .option('-s --show', 'show all the stock you had added')
+        .option('-w --watch', 'show stock info with setInterval')
         .option('-m --message', 'send all the stock you had added to dingding')
         .alias('s')
         .description('a stock tool!')
