@@ -1,3 +1,15 @@
+# [0.8.0](https://github.com/limengke123/van/compare/v0.7.7...v0.8.0) (2019-08-06)
+
+
+### Features
+
+* **package:** 发布流程增加删除旧的lib一步 ([637f571](https://github.com/limengke123/van/commit/637f571))
+* **stock:** watch 功能从 递归逻辑 修改为 while true ([e6a99e8](https://github.com/limengke123/van/commit/e6a99e8))
+* **stock:** 新增 --watch属性，一直监听改变 ([3c584cc](https://github.com/limengke123/van/commit/3c584cc))
+* **tool:** 电影模块更新 ([ebbcd6a](https://github.com/limengke123/van/commit/ebbcd6a))
+
+
+
 ## [0.7.7](https://github.com/limengke123/van/compare/v0.7.6...v0.7.7) (2019-06-03)
 
 
