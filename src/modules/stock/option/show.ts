@@ -28,7 +28,9 @@ const getColor = (rate: number) => {
 
 const config = new ConfigStore(stockConstant.STOCK_CONF, {mine: []})
 
-export const show = (time: number | boolean, showIcon: boolean = true) => {
+const sleep = (time: number) => new Promise(resolve => setTimeout(resolve, time))
+
+export const show = async (time: number | boolean, showIcon: boolean = true) => {
     const mine = config.get('mine')
     if (!mine.length) {
         return console.log('you haven\'t add any stock code yet')
@@ -36,11 +38,12 @@ export const show = (time: number | boolean, showIcon: boolean = true) => {
     if (time) {
         const intervalTime = typeof time === 'number' ? time : defaultIntervalTime
         clear()
-        _show(showIcon)
-            .then(() => {
-                return new Promise(resolve => setTimeout(resolve, intervalTime))
-            })
-            .then(() => show(time, false))
+        await _show(showIcon)
+        while (true) {
+            await sleep(intervalTime)
+            clear()
+            await _show(false)
+        }
     } else {
         _show(showIcon)
             .catch(err => console.log(chalk.red(err.message)))
