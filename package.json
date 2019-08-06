@@ -12,8 +12,9 @@
     "lint": "eslint --fix src/",
     "build": "tsc",
     "build:watch": "tsc -w",
+    "clear": "rimraf ./lib",
     "version": "npm run changelog && git add CHANGELOG.md",
-    "preversion": "npm run build && npm run changelog && git add CHANGELOG.md",
+    "preversion": "npm run clear && npm run build && npm run changelog && git add CHANGELOG.md",
     "postversion": "npm publish && git push && git push --tags"
   },
   "repository": {
@@ -79,6 +80,7 @@
     "husky": "^2.1.0",
     "lint-staged": "^8.1.5",
     "ora": "^3.4.0",
+    "rimraf": "^2.6.3",
     "typescript": "^3.4.5"
   }
 }
