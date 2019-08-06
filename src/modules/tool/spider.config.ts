@@ -53,6 +53,15 @@ export const douban = {
     }
 }
 
+export interface Idouban {
+    tag: string,
+    rateNumber: string,
+    rateMan: string,
+    subjectCast: string,
+    title: string,
+    link: string
+}
+
 export const doubanMovieDetail = {
     rules: {
         rule: {
@@ -74,5 +83,12 @@ export const doubanMovieDetail = {
             }
         }
     }
+}
+
+export interface ImovieItem {
+    director: string,
+    screenwriter: string,
+    actor: string,
+    genre: string
 }
 

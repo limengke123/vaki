@@ -1,28 +1,24 @@
 import * as ora from 'ora'
-import { URL } from 'url'
 import * as inquirer from 'inquirer'
 import chalk from 'chalk'
 import * as Araneida from 'araneida'
 import { Tool, error } from '../../../../util'
-import { douban, doubanMovieDetail } from '../../spider.config'
+import { douban, Idouban, doubanMovieDetail, ImovieItem } from '../../spider.config'
 
 const { spinnerFactory } = Tool
 
-interface Idouban {
-    tag: string,
-    rateNumber: string,
-    rateMan: string,
-    subjectCast: string,
-    title: string
+interface Ianswer {
+    name: string,
+    item: Idouban
 }
 
-export const doubanHandle = (option: any) => {
+export const doubanHandle = () => {
     inquirer.prompt({
         type: 'input',
         name: 'word',
         message: 'input search word'
     }).then((answer: any) => {
-        return new Promise((resolve, reject) => {
+        return new Promise<Array<Idouban>>(resolve => {
             const { word } = answer
             const encodeUrl: string = Tool.getUriEncodeGBk(word, 'utf8')
             const url: string = douban.url + encodeUrl
@@ -30,16 +26,16 @@ export const doubanHandle = (option: any) => {
             spinner.start()
             const spider = new Araneida({
                 links: {...douban, url},
-                done: (data: any) => {
+                done: (data: Array<Idouban>) => {
                     spinner.stop()
                     resolve(data)
                 }
             })
             spider.start()
         })
-    }).then((data: any)=> {
+    }).then((data: Array<Idouban>)=> {
         const result = data.filter((item: Idouban) => item.tag)
-        return inquirer.prompt({
+        return inquirer.prompt<Ianswer>({
             type: 'list',
             name: 'item',
             message: 'select a item',
@@ -69,11 +65,10 @@ export const doubanHandle = (option: any) => {
                 }
             })
         })
-    }).then((answer: any) => {
-        return new Promise((resolve, reject) => {
+    }).then((answer: Ianswer) => {
+        return new Promise<ImovieItem>((resolve) => {
             const { item } = answer
             const { tag, link } = item
-            const option = {}
             if (tag === '[电影]') {
             }
             const spinner: ora.Ora = spinnerFactory('正在拼命加载豆瓣详情页面...')
@@ -83,14 +78,14 @@ export const doubanHandle = (option: any) => {
                     ...doubanMovieDetail,
                     url: link,
                 },
-                done: (data: any) => {
+                done: (data: ImovieItem) => {
                     spinner.stop()
                     resolve(data)
                 }
             })
             spider.start()
         })
-    }).then((data: any) => {
+    }).then((data: ImovieItem) => {
         console.log(data)
     }).catch((err: Error)=> {
         error(err.message)

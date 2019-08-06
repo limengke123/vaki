@@ -23,7 +23,7 @@ const tool = (option: any) => {
     }
 
     if (option.douban) {
-        doubanHandle(option)
+        doubanHandle()
     }
 
     if (option.edit) {
