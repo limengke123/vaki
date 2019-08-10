@@ -62,21 +62,22 @@ export const movie = (option: any) => {
         const { url } = movie
         const link: string = (new URL(dytt.url)).origin + url
         const spinner: ora.Ora = spinnerFactory('下载链接正在拼命加载中...')
-        return new Promise<ILInk>((resolve, reject) => {
+        return new Promise<ILInk[]>((resolve, reject) => {
             spinner.start()
             const spider = new Araneida({
                 links: {
                     url: link,
                     rules: {
+                        list: '#Zoom > span > table',
                         rule: {
                             ftpLink: {
                                 type: 'text',
-                                path: '#Zoom > span > table > tbody > tr > td > a'
+                                path: 'tbody > tr > td a'
                             }
                         }
                     }
                 },
-                done: (data: ILInk) => {
+                done: (data: ILInk[]) => {
                     spinner.stop()
                     resolve(data)
                 },
@@ -84,17 +85,17 @@ export const movie = (option: any) => {
             })
             spider.start()
         })
-    }).then((data: ILInk) => {
+    }).then((data: ILInk[]) => {
         success('以下为下载链接:')
-        if (Array.isArray(data.ftpLink)) {
-            data.ftpLink.forEach((link: string, index: number, array: Array<any>) => {
+        if (data.length > 1) {
+            data.forEach((link: ILInk, index: number, array: Array<ILInk>) => {
                 const number = (index + 1) + '. '
                 const suffix = index === array.length ? '' : '\n'
-                const result = number + link + suffix
+                const result = number + link.ftpLink + suffix
                 console.log(result)
             })
         } else {
-            console.log(data.ftpLink)
+            console.log(data[0].ftpLink)
         }
     }).catch((err: Error) => {
         error(err.message)
