@@ -1,3 +1,12 @@
+## [0.8.1](https://github.com/limengke123/van/compare/v0.8.0...v0.8.1) (2019-08-10)
+
+
+### Bug Fixes
+
+* **tool:** 修复查看电影天堂的电视剧列表的显示问题 ([316c295](https://github.com/limengke123/van/commit/316c295))
+
+
+
 # [0.8.0](https://github.com/limengke123/van/compare/v0.7.7...v0.8.0) (2019-08-06)
 
 
