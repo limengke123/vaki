@@ -1,3 +1,12 @@
+## [0.9.1](https://github.com/limengke123/van/compare/v0.9.0...v0.9.1) (2019-10-18)
+
+
+### Features
+
+* **helper:** 每日喝水提醒增加atAll效果 ([d2167d4](https://github.com/limengke123/van/commit/d2167d4))
+
+
+
 # [0.9.0](https://github.com/limengke123/van/compare/v0.8.1...v0.9.0) (2019-10-18)
 
 
