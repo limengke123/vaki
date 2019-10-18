@@ -18,22 +18,26 @@ export class Markdown {
         this.text = text
     }
 
+    static getMarkdownInstant(): Markdown {
+        return new Markdown()
+    }
+
     getText ():string {
         return this.text
     }
 
-    addText (text: string, color: string): Markdown {
+    addText (text: string, color: string): this {
         text = text.replace(/\s/g, '&nbsp;')
         this.text += this.wrapperWithColor(text, color)
         return this
     }
 
-    addRawText (text: string): Markdown {
+    addRawText (text: string): this {
         this.text += text
         return this
     }
 
-    addCode (code: string, type: string = 'javascript'): Markdown {
+    addCode (code: string, type: string = 'javascript'): this {
         // @ts-ignore
         const codeText: string = `
             \```${type}
@@ -44,19 +48,26 @@ export class Markdown {
         return this
     }
 
-    addComment (comment: string): Markdown {
+    addImage(imgUrl: string, imgDesc?: string): this {
+        imgDesc = imgDesc ? imgDesc : '图片描述'
+        const img = `![${imgDesc}](${imgUrl})`
+        this.text += img
+        return this
+    }
+
+    addComment (comment: string): this {
         const commentText: string = `> ${comment}`
         this.text += commentText
         return this
     }
 
-    addBoldText (text: string): Markdown {
+    addBoldText (text: string): this {
         const boldText: string = `**${text}**`
         this.text += boldText
         return this
     }
 
-    addItalicText (text: string): Markdown {
+    addItalicText (text: string): this {
         const italicText: string = `*${text}*`
         this.text += italicText
         return this
@@ -68,7 +79,7 @@ export class Markdown {
      * @param columns - ${array} - 显示的表头
      * @return Markdown
      * */
-    addTable (data: Array<tableData>, columns: Array<columns>): Markdown {
+    addTable (data: Array<tableData>, columns: Array<columns>): this {
         if (!Array.isArray(data)) {
             return this
         }
@@ -85,7 +96,7 @@ export class Markdown {
         return this
     }
 
-    addDividingLine (n: number = 1): Markdown {
+    addDividingLine (n: number = 1): this {
         this.text += '---'.repeat(n)
         return this
     }

@@ -9,6 +9,7 @@ import { stockInstall } from './modules/stock'
 import { dingdingInstall } from './modules/dingding'
 import { toolInstall } from './modules/tool'
 import { readingInstall } from './modules/read'
+import { helperInstall } from './modules/helper'
 
 errorHandle()
 
@@ -24,6 +25,7 @@ stockInstall(program)
 dingdingInstall(program)
 toolInstall(program)
 readingInstall(program)
+helperInstall(program)
 
 program.parse(process.argv)
 

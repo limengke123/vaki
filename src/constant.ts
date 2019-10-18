@@ -67,7 +67,7 @@ const STOCK_COMMAND_NAME = 'stock'
 
 ///----- stock_conf -----///
 const STOCK_CONF = getReadKey(CONF)
-///------------------- READ -------------------///
+///------------------- stock -------------------///
 
 ///------------------- DINGDING -------------------///
 ///----- DINGDING_NAME -----///
@@ -75,7 +75,13 @@ const DINGDING_COMMAND_NAME = 'dingding'
 
 ///----- dingding_conf -----///
 const DINGDING_CONF = getReadKey(CONF)
-///------------------- read -------------------///
+///------------------- DINGDING -------------------///
+
+///------------------- helper -------------------///
+///----- HELPER_NAME -----///
+const HELPER_COMMAND_NAME = 'helper'
+
+///------------------- helper -------------------///
 
 export const mainConstant = {
     MAIN_CONF,
@@ -108,4 +114,8 @@ export const stockConstant = {
 export const dingdingConstant = {
     DINGDING_COMMAND_NAME,
     DINGDING_CONF
+}
+
+export const helperConstant = {
+    HELPER_COMMAND_NAME
 }
