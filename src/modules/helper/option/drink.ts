@@ -41,6 +41,9 @@ export const drink = () => {
                         'https://assets.souche.com/assets/sccimg/tiger-workbench/1111.jpeg',
                         '每日喝水提醒'
                     ).getText()
+                },
+                at: {
+                    isAtAll: true
                 }
             })
         })
