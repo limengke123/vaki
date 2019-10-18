@@ -1,3 +1,12 @@
+# [0.9.0](https://github.com/limengke123/van/compare/v0.8.1...v0.9.0) (2019-10-18)
+
+
+### Features
+
+* **helper:** 增加自动提醒喝水功能 ([bce6d46](https://github.com/limengke123/van/commit/bce6d46))
+
+
+
 ## [0.8.1](https://github.com/limengke123/van/compare/v0.8.0...v0.8.1) (2019-08-10)
 
 
