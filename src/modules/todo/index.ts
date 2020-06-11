@@ -1,7 +1,7 @@
 import * as commander from 'commander'
 import * as ConfigStore from 'configstore'
 import * as figlet from 'figlet'
-import * as clear from 'clear'
+import clear = require('clear')
 import { Helper, error, Log } from '../../util'
 import { todoConstant } from '../../constant'
 import { add } from './option/add'

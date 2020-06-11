@@ -1,4 +1,4 @@
-import * as clear from 'clear'
+import clear = require('clear')
 import * as figlet from 'figlet'
 import * as commander from 'commander'
 import { dingdingConstant } from '../../constant'

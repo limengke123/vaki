@@ -1,7 +1,7 @@
 import * as commander from 'commander'
 import * as child_process from 'child_process'
 import * as ConfigStore from 'configstore'
-import * as clear from 'clear'
+import clear = require('clear')
 import * as figlet from 'figlet'
 import { Helper, Log } from '../../util'
 import { toolConstant } from '../../constant'

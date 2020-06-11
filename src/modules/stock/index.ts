@@ -1,5 +1,5 @@
 import * as commander from 'commander'
-import * as clear from 'clear'
+import clear = require('clear')
 import * as figlet from 'figlet'
 import { stockConstant } from '../../constant'
 import { Log } from '../../util'

@@ -1,4 +1,4 @@
-import * as clear from 'clear'
+import clear = require('clear')
 import * as commander from 'commander'
 import {dingdingConstant, helperConstant} from '../../constant'
 import {Log} from '../../util'

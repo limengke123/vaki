@@ -1,6 +1,6 @@
 import * as commander from 'commander'
 import * as child_process from 'child_process'
-import * as clear from 'clear'
+import clear = require('clear')
 import * as figlet from 'figlet'
 import * as ConfigStore from 'configstore'
 import { Log } from '../../util'

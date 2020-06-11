@@ -108,6 +108,11 @@
   dependencies:
     any-observable "^0.3.0"
 
+"@types/clear@^0.1.0":
+  version "0.1.0"
+  resolved "https://registry.npmjs.org/@types/clear/-/clear-0.1.0.tgz#915bff8e6438d080f05888d28f6beeebc54159c0"
+  integrity sha512-b2VgNzu3BxxM2nGhZSMzkiaTaCClevKkBCtgpV2Al0eGaEeQgTk5qHedzNxi/SgsvmDbqxWKDAIrxZNVKyDCXw==
+
 "@types/configstore@^4.0.0":
   version "4.0.0"
   resolved "https://registry.npmjs.org/@types/configstore/-/configstore-4.0.0.tgz#cb718f9507e9ee73782f40d07aaca1cd747e36fa"
