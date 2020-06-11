@@ -31,7 +31,7 @@ export const noOptionHandle = async () => {
     if (config.get(mainConstant.MAIN_CONF_LUCKY_NUMBER)) {
         luckyNumber()
     }
-    await history()
+    // await history()
     // 显示目标
     if (config.get(mainConstant.MAIN_CONF_TARGET)) {
         handleTarget()

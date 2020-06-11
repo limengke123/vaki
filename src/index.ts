@@ -14,7 +14,7 @@ import { helperInstall } from './modules/helper'
 errorHandle()
 
 program.version(
-    chalk.underline.bold.greenBright('v' + pkg.version),
+    chalk.underline.bold.white('v' + pkg.version),
     '-v, --version'
 )
 
