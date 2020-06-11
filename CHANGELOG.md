@@ -1,3 +1,12 @@
+## [0.9.3](https://github.com/limengke123/van/compare/v0.9.2...v0.9.3) (2020-06-11)
+
+
+### Features
+
+* **main:** 移除历史上的今天模块 ([291b017](https://github.com/limengke123/van/commit/291b01776212a0053d387a3257c6af676fb43f35))
+
+
+
 ## [0.9.2](https://github.com/limengke123/van/compare/v0.9.1...v0.9.2) (2020-06-11)
 
 
